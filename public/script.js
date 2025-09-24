@@ -1,8 +1,7 @@
+const pages = document.querySelectorAll('.page');
 // Initialize AOS
 AOS.init();
 
-// DOM Elements
-const pages = document.querySelectorAll('.page');
 const navLinks = document.querySelectorAll('.nav-link');
 const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
 const closeMenuBtn = document.querySelector('.close-menu-btn');
@@ -51,6 +50,8 @@ function showPage(pageId) {
     // Scroll to top
     window.scrollTo(0, 0);
 }
+
+
 
 // Event Listeners for Navigation
 navLinks.forEach(link => {
@@ -117,7 +118,7 @@ sendCodeBtn.addEventListener('click', () => {
     // Simulate sending code
     sentCode = (Math.floor(100000 + Math.random() * 900000)).toString();
     alert('A login code has been sent to your email. (Demo code: ' + sentCode + ')');
-    codeGroup.style.display = 'block';
+    if (codeGroup) codeGroup.style.display = 'block';
     sendCodeBtn.style.display = 'none';
     loginCodeBtn.style.display = 'inline-block';
 });
@@ -126,19 +127,23 @@ loginForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const email = document.getElementById('login-email').value;
     const code = document.getElementById('login-code').value;
-    if (code !== sentCode) {
+    if (!sentCode || code !== sentCode) {
         alert('Invalid code.');
         return;
     }
+    // Extract username from email
+    const username = email.split('@')[0];
     // Update UI for logged in state
-    loginBtn.textContent = 'LOGOUT';
+    loginBtn.style.display = 'none';
     profileNameContainer.style.display = 'block';
-    profileNameContainer.innerHTML = `<a href="#" id="logout-btn">${email}</a>`;
+    profileNameContainer.innerHTML = `<a href="#" id="logout-btn">${username}</a>`;
+    localStorage.setItem('loggedInUser', username);
     affiliateName.textContent = 'John Doe';
     affiliateEmail.textContent = email;
-    affiliateUsername.textContent = '@johndoe';
+    affiliateUsername.textContent = `@${username}`;
     loginModal.style.display = 'none';
-    // Reset form
+    // Reset form and sentCode
+    sentCode = '';
     codeGroup.style.display = 'none';
     sendCodeBtn.style.display = 'inline-block';
     loginCodeBtn.style.display = 'none';
@@ -146,8 +151,52 @@ loginForm.addEventListener('submit', (e) => {
 });
 
 googleLoginBtn.addEventListener('click', () => {
-    alert('Google login is not implemented in this demo.');
-    // Here you would integrate Google Sign-In SDK
+    // Simulate Google login success
+    const googleUsername = 'googleuser'; // Replace with actual username from Google response
+    const googleEmail = 'googleuser@gmail.com'; // Replace with actual email from Google response
+    loginBtn.style.display = 'none';
+    profileNameContainer.style.display = 'block';
+    profileNameContainer.innerHTML = `<a href="#" id="logout-btn">${googleUsername}</a>`;
+    localStorage.setItem('loggedInUser', googleUsername);
+    affiliateName.textContent = 'Google User';
+    affiliateEmail.textContent = googleEmail;
+    affiliateUsername.textContent = `@${googleUsername}`;
+    loginModal.style.display = 'none';
+});
+
+
+
+
+// Hide code group on page load
+document.addEventListener('DOMContentLoaded', function() {
+    if (codeGroup) codeGroup.style.display = 'none';
+    sentCode = '';
+    // Restore login status from localStorage
+    const loggedInUser = localStorage.getItem('loggedInUser');
+    if (loggedInUser) {
+        loginBtn.style.display = 'none';
+        profileNameContainer.style.display = 'block';
+        profileNameContainer.innerHTML = `<a href="#" id="logout-btn">${loggedInUser}</a>`;
+    } else {
+        loginBtn.style.display = 'inline-block';
+        profileNameContainer.style.display = 'none';
+    }
+});
+
+
+
+// Logout functionality
+profileNameContainer.addEventListener('click', function(e) {
+    if (e.target && e.target.id === 'logout-btn') {
+        if (confirm('Do you want to log out?')) {
+            // Hide username, show LOGIN button
+            profileNameContainer.style.display = 'none';
+            loginBtn.style.display = 'inline-block';
+            loginBtn.textContent = 'LOG IN';
+            sentCode = '';
+            localStorage.removeItem('loggedInUser');
+        }
+    }
 });
 
 // Copy Referral Code
@@ -558,4 +607,5 @@ window.addEventListener('load', animateCounters);
     animate();
     // Recalculate on resize
     window.addEventListener('resize', resizeCanvas);
+    resizeCanvas()
 })();
