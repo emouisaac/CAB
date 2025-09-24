@@ -333,30 +333,33 @@ main {
 }
 
 .crypto-table-container {
-  background: var(--card-bg);
-  border-radius: 8px;
-  padding: 1.5rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-  margin-top: 2rem;
-  max-height: 500px;
-  overflow-y: auto;
-  min-height: 300px;
+    background: var(--card-bg);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    margin-top: 2rem;
+    max-height: 500px;
+    overflow-y: auto;
+    min-height: 300px;
 }
 
 .crypto-table {
+    min-width: 480px;
     width: 100%;
     border-collapse: collapse;
 }
 
 .crypto-table th, .crypto-table td {
-    padding: 1rem;
+    padding: 0.5rem 0.3rem;
     text-align: left;
     border-bottom: 1px solid var(--border-color);
+    font-size: 0.95em;
 }
 
 .crypto-table th {
     font-weight: 600;
     color: var(--primary);
+    font-size: 1em;
 }
 
 .green {
@@ -1233,13 +1236,10 @@ footer {
         margin-left: auto;
         margin-right: auto;
     }
-       /* Extra safety: lock dashboard position on small screens */
+       /* Remove restrictions to allow scrolling and interaction in dashboard */
        .dashboard, .dashboard * {
            position: static !important;
            z-index: auto !important;
-           touch-action: none !important;
-           user-select: auto !important;
-           pointer-events: auto !important;
        }
 
         /* Affiliate dashboard statistics section mobile tweaks */
