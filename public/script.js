@@ -299,7 +299,7 @@ function populateHomeCourses() {
                         <span class="old-price" style="color:#aaa;text-decoration:line-through;font-size:1em;">$${course.oldPrice}</span>
                         <span class="new-price" style="color:#009e3c;font-weight:bold;font-size:1.1em;margin-left:8px;">$${course.newPrice}</span>
                         <span class="discount-badge" style="background:#ffe066;color:#b8860b;border-radius:12px;padding:2px 8px;font-size:0.9em;margin-left:6px;font-weight:600;">${course.discount}</span>
-                        <a href="public/buy-course.html?course=${course.key}" class="btn btn-primary" style="display:block;margin-top:10px;">Enroll Now</a>
+                        <a href="/buy-course.html?course=${course.key}" class="btn btn-primary" style="display:block;margin-top:10px;">Enroll Now</a>
                     </div>
                 </div>
             </div>
@@ -328,7 +328,7 @@ function populateAllCourses() {
                         <span class="old-price" style="color:#aaa;text-decoration:line-through;font-size:1em;">$${course.oldPrice}</span>
                         <span class="new-price" style="color:#009e3c;font-weight:bold;font-size:1.1em;margin-left:8px;">$${course.newPrice}</span>
                         <span class="discount-badge" style="background:#ffe066;color:#b8860b;border-radius:12px;padding:2px 8px;font-size:0.9em;margin-left:6px;font-weight:600;">${course.discount}</span>
-                        <a href="public/buy-course.html?course=${course.key}" class="btn btn-primary" style="display:block;margin-top:10px;">Enroll Now</a>
+                        <a href="/buy-course.html?course=${course.key}" class="btn btn-primary" style="display:block;margin-top:10px;">Enroll Now</a>
                     </div>
                 </div>
             </div>
