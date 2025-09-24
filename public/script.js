@@ -1,3 +1,28 @@
+// Helper: Get query param
+function getQueryParam(name) {
+    const url = new URL(window.location.href);
+    return url.searchParams.get(name);
+}
+
+// On every page load, check backend for logged-in user (Google or local)
+document.addEventListener('DOMContentLoaded', function() {
+    fetch('/auth/user', { credentials: 'include' })
+        .then(res => res.json())
+        .then(user => {
+            if (user && user.displayName) {
+                loginBtn.style.display = 'none';
+                profileNameContainer.style.display = 'block';
+                profileNameContainer.innerHTML = `<a href="#" id="logout-btn">${user.displayName}</a>`;
+            } else {
+                loginBtn.style.display = 'inline-block';
+                profileNameContainer.style.display = 'none';
+            }
+        })
+        .catch(() => {
+            loginBtn.style.display = 'inline-block';
+            profileNameContainer.style.display = 'none';
+        });
+});
 const pages = document.querySelectorAll('.page');
 // Initialize AOS
 AOS.init();
@@ -108,60 +133,13 @@ modalClose.addEventListener('click', () => {
     loginModal.style.display = 'none';
 });
 
-// Login Code Send and Verification
-sendCodeBtn.addEventListener('click', () => {
-    const email = document.getElementById('login-email').value;
-    if (!email) {
-        alert('Please enter your email.');
-        return;
-    }
-    // Simulate sending code
-    sentCode = (Math.floor(100000 + Math.random() * 900000)).toString();
-    alert('A login code has been sent to your email. (Demo code: ' + sentCode + ')');
-    if (codeGroup) codeGroup.style.display = 'block';
-    sendCodeBtn.style.display = 'none';
-    loginCodeBtn.style.display = 'inline-block';
-});
 
-loginForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const email = document.getElementById('login-email').value;
-    const code = document.getElementById('login-code').value;
-    if (!sentCode || code !== sentCode) {
-        alert('Invalid code.');
-        return;
-    }
-    // Extract username from email
-    const username = email.split('@')[0];
-    // Update UI for logged in state
-    loginBtn.style.display = 'none';
-    profileNameContainer.style.display = 'block';
-    profileNameContainer.innerHTML = `<a href="#" id="logout-btn">${username}</a>`;
-    localStorage.setItem('loggedInUser', username);
-    affiliateName.textContent = 'John Doe';
-    affiliateEmail.textContent = email;
-    affiliateUsername.textContent = `@${username}`;
-    loginModal.style.display = 'none';
-    // Reset form and sentCode
-    sentCode = '';
-    codeGroup.style.display = 'none';
-    sendCodeBtn.style.display = 'inline-block';
-    loginCodeBtn.style.display = 'none';
-    loginForm.reset();
-});
+// Login Code Send and Verification (removed demo logic)
+// If you want to support email code login in production, implement here.
 
 googleLoginBtn.addEventListener('click', () => {
-    // Simulate Google login success
-    const googleUsername = 'googleuser'; // Replace with actual username from Google response
-    const googleEmail = 'googleuser@gmail.com'; // Replace with actual email from Google response
-    loginBtn.style.display = 'none';
-    profileNameContainer.style.display = 'block';
-    profileNameContainer.innerHTML = `<a href="#" id="logout-btn">${googleUsername}</a>`;
-    localStorage.setItem('loggedInUser', googleUsername);
-    affiliateName.textContent = 'Google User';
-    affiliateEmail.textContent = googleEmail;
-    affiliateUsername.textContent = `@${googleUsername}`;
-    loginModal.style.display = 'none';
+    // Redirect to backend for Google OAuth
+    window.location.href = '/auth/google';
 });
 
 
@@ -171,16 +149,6 @@ googleLoginBtn.addEventListener('click', () => {
 document.addEventListener('DOMContentLoaded', function() {
     if (codeGroup) codeGroup.style.display = 'none';
     sentCode = '';
-    // Restore login status from localStorage
-    const loggedInUser = localStorage.getItem('loggedInUser');
-    if (loggedInUser) {
-        loginBtn.style.display = 'none';
-        profileNameContainer.style.display = 'block';
-        profileNameContainer.innerHTML = `<a href="#" id="logout-btn">${loggedInUser}</a>`;
-    } else {
-        loginBtn.style.display = 'inline-block';
-        profileNameContainer.style.display = 'none';
-    }
 });
 
 
