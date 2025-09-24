@@ -1,11 +1,65 @@
-
-// Load environment variables from .env
 require('dotenv').config();
-
 const express = require('express');
+const router = express.Router();
+const crypto = require('crypto');
+const nodemailer = require('nodemailer');
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
-const router = express.Router();
+
+// In-memory store for codes: { email: { code, expires } }
+const codeStore = {};
+
+// Configure nodemailer (use your real SMTP in production)
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS
+  }
+});
+
+// Send login code endpoint
+router.post('/send-code', async (req, res) => {
+  const { email } = req.body;
+  if (!email) return res.status(400).json({ message: 'Email required' });
+  const code = (Math.floor(100000 + Math.random() * 900000)).toString();
+  codeStore[email] = { code, expires: Date.now() + 10 * 60 * 1000 }; // 10 min expiry
+  try {
+    await transporter.sendMail({
+      from: process.env.EMAIL_USER,
+      to: email,
+      subject: 'Your Login Code',
+      text: `Your login code is: ${code}`
+    });
+    res.json({ message: 'Code sent' });
+  } catch (err) {
+    res.status(500).json({ message: 'Failed to send code', error: err.message });
+  }
+});
+
+// Verify code and login/register endpoint
+router.post('/verify-code', (req, res) => {
+  const { email, code } = req.body;
+  const entry = codeStore[email];
+  if (!entry || entry.code !== code || entry.expires < Date.now()) {
+    return res.status(400).json({ message: 'Invalid or expired code' });
+  }
+  // Remove code after use
+  delete codeStore[email];
+  // Register user if not exists
+  let user = users.find(u => u.email === email);
+  if (!user) {
+    user = { email, username: email.split('@')[0] };
+    users.push(user);
+  }
+  req.session.user = user.username;
+  req.login(user, err => {
+    if (err) return res.status(500).json({ message: 'Login failed' });
+    res.json({ message: 'Login successful', user: { username: user.username, email: user.email } });
+  });
+});
+
+// ...existing code...
 
 // Get current user info (for frontend after Google login)
 router.get('/user', (req, res) => {

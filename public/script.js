@@ -134,8 +134,74 @@ modalClose.addEventListener('click', () => {
 });
 
 
-// Login Code Send and Verification (removed demo logic)
-// If you want to support email code login in production, implement here.
+
+// Login Code Send and Verification (production)
+sendCodeBtn.addEventListener('click', async () => {
+    const email = document.getElementById('login-email').value;
+    if (!email) {
+        alert('Please enter your email.');
+        return;
+    }
+    sendCodeBtn.disabled = true;
+    sendCodeBtn.textContent = 'Sending...';
+    try {
+        const res = await fetch('/auth/send-code', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email })
+        });
+        const data = await res.json();
+        if (res.ok) {
+            alert('A login code has been sent to your email.');
+            if (codeGroup) codeGroup.style.display = 'block';
+            sendCodeBtn.style.display = 'none';
+            loginCodeBtn.style.display = 'inline-block';
+        } else {
+            alert(data.message || 'Failed to send code.');
+        }
+    } catch (err) {
+        alert('Network error.');
+    }
+    sendCodeBtn.disabled = false;
+    sendCodeBtn.textContent = 'Send Code';
+});
+
+loginForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = document.getElementById('login-email').value;
+    const code = document.getElementById('login-code').value;
+    if (!email || !code) {
+        alert('Please enter your email and code.');
+        return;
+    }
+    loginCodeBtn.disabled = true;
+    loginCodeBtn.textContent = 'Verifying...';
+    try {
+        const res = await fetch('/auth/verify-code', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, code })
+        });
+        const data = await res.json();
+        if (res.ok) {
+            // Success: update UI
+            loginBtn.style.display = 'none';
+            profileNameContainer.style.display = 'block';
+            profileNameContainer.innerHTML = `<a href="#" id="logout-btn">${data.user.username}</a>`;
+            loginModal.style.display = 'none';
+            if (codeGroup) codeGroup.style.display = 'none';
+            sendCodeBtn.style.display = 'inline-block';
+            loginCodeBtn.style.display = 'none';
+            loginForm.reset();
+        } else {
+            alert(data.message || 'Invalid code.');
+        }
+    } catch (err) {
+        alert('Network error.');
+    }
+    loginCodeBtn.disabled = false;
+    loginCodeBtn.textContent = 'Login with Code';
+});
 
 googleLoginBtn.addEventListener('click', () => {
     // Redirect to backend for Google OAuth
@@ -181,6 +247,51 @@ copyReferralBtn.addEventListener('click', () => {
             console.error('Failed to copy: ', err);
         });
 });
+
+
+// Registration Form Submission
+const registerForm = document.getElementById('registerForm');
+const registerFormContainer = document.getElementById('register-form-container');
+const loginFormContainer = document.getElementById('login-form-container');
+if (registerForm) {
+    registerForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const name = document.getElementById('register-name').value;
+        const email = document.getElementById('register-email').value;
+        const password = document.getElementById('register-password').value;
+        const referral = document.getElementById('register-referral').value;
+        if (!name || !email || !password) {
+            alert('Please fill in all required fields.');
+            return;
+        }
+        const submitBtn = registerForm.querySelector('button[type="submit"]');
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Registering...';
+        try {
+            const res = await fetch('/auth/register', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, email, password, referral })
+            });
+            const data = await res.json();
+            if (res.ok) {
+                alert('Registration successful! Please log in.');
+                // Switch to login modal
+                if (registerFormContainer && loginFormContainer) {
+                    registerFormContainer.style.display = 'none';
+                    loginFormContainer.style.display = '';
+                }
+                registerForm.reset();
+            } else {
+                alert(data.message || 'Registration failed.');
+            }
+        } catch (err) {
+            alert('Network error.');
+        }
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Register';
+    });
+}
 
 // Contact Form Submission
 contactForm.addEventListener('submit', (e) => {
@@ -384,7 +495,7 @@ function updateMarketData() {
     fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false')
         .then(response => response.json())
         .then(data => {
-            // Market stats (from first coin for demo, or sum if needed)
+            // Market stats (production: calculated from API data)
             if (data && data.length > 0) {
                 const totalMarketCap = data.reduce((sum, coin) => sum + (coin.market_cap || 0), 0);
                 const totalVolume = data.reduce((sum, coin) => sum + (coin.total_volume || 0), 0);
