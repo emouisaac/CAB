@@ -13,14 +13,6 @@
         margin-top: 0.5em;
     }
     .discount-badge {
-        /* Extra safety: lock dashboard position on small screens */
-        .dashboard, .dashboard * {
-            position: static !important;
-            z-index: auto !important;
-            touch-action: none !important;
-            user-select: auto !important;
-            pointer-events: auto !important;
-        }
         font-size: 0.8em !important;
         padding: 2px 6px !important;
         margin-left: 0 !important;
