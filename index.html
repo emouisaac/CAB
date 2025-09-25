@@ -992,8 +992,12 @@
                 <h3 class="modal-title">Login to Your Account</h3>
                 <form id="loginForm">
                     <div class="form-group">
-                        <label class="form-label" for="login-email">Email</label>
-                        <input type="email" class="form-input" id="login-email" required>
+                        <label class="form-label" for="login-identifier">Username or Email</label>
+                        <input type="text" class="form-input" id="login-identifier" placeholder="Enter username or email" required>
+                    </div>
+                    <div class="form-group" id="password-group">
+                        <label class="form-label" for="login-password">Password</label>
+                        <input type="password" class="form-input" id="login-password" autocomplete="current-password">
                     </div>
                     <div class="form-group" id="code-group" style="display:none;">
                         <label class="form-label" for="login-code">Enter Code</label>
@@ -1003,6 +1007,7 @@
                         <button type="button" class="btn btn-outline-light" id="close-login-modal">Cancel</button>
                         <button type="button" class="btn btn-primary" id="send-code-btn" style="margin-right: 10px;">Send Code</button>
                         <button type="submit" class="btn btn-success" id="login-code-btn" style="display:none;">Login with Code</button>
+                        <button type="submit" class="btn btn-primary" id="login-password-btn">Login with Password</button>
                     </div>
                     <div style="text-align:center; margin: 1rem 0;">or</div>
                     <button type="button" class="btn btn-google" id="google-login-btn">
@@ -1020,31 +1025,31 @@
             </div>
             
             <div id="register-form-container" style="display:none;">
-                <h3 class="modal-title">Create an Account</h3>
-                <form id="registerForm">
-                    <div class="form-group">
-                        <label class="form-label" for="register-name">Full Name</label>
-                        <input type="text" class="form-input" id="register-name" required>
+                <h3 class="modal-title" style="font-size:1.2rem; margin-bottom:1rem;">Create an Account</h3>
+                <form id="registerForm" style="max-width:320px; margin:auto;">
+                    <div class="form-group" style="margin-bottom:0.7rem;">
+                        <label class="form-label" for="register-username" style="font-size:0.95rem;">Username</label>
+                        <input type="text" class="form-input" id="register-username" placeholder="Choose a username" required style="font-size:0.95rem; padding:0.4rem 0.7rem;">
                     </div>
-                    <div class="form-group">
-                        <label class="form-label" for="register-email">Email</label>
-                        <input type="email" class="form-input" id="register-email" required>
+                    <div class="form-group" style="margin-bottom:0.7rem;">
+                        <label class="form-label" for="register-email" style="font-size:0.95rem;">Email</label>
+                        <input type="email" class="form-input" id="register-email" placeholder="Enter your email" required style="font-size:0.95rem; padding:0.4rem 0.7rem;">
                     </div>
-                    <div class="form-group">
-                        <label class="form-label" for="register-password">Password</label>
-                        <input type="password" class="form-input" id="register-password" required>
+                    <div class="form-group" style="margin-bottom:0.7rem;">
+                        <label class="form-label" for="register-password" style="font-size:0.95rem;">Password</label>
+                        <input type="password" class="form-input" id="register-password" placeholder="Create a password" required style="font-size:0.95rem; padding:0.4rem 0.7rem;">
                     </div>
-                    <div class="form-group">
-                        <label class="form-label" for="register-referral">Referral Code (optional)</label>
-                        <input type="text" class="form-input" id="register-referral">
+                    <div class="form-group" style="margin-bottom:0.7rem;">
+                        <label class="form-label" for="register-referral" style="font-size:0.95rem;">Referral Code (optional)</label>
+                        <input type="text" class="form-input" id="register-referral" placeholder="Referral code" style="font-size:0.95rem; padding:0.4rem 0.7rem;">
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-outline-light" id="close-register-modal">Cancel</button>
-                        <button type="submit" class="btn btn-primary">Register</button>
+                    <div class="modal-footer" style="display:flex; justify-content:space-between;">
+                        <button type="button" class="btn btn-outline-light" id="close-register-modal" style="font-size:0.95rem; padding:0.3rem 1rem;">Cancel</button>
+                        <button type="submit" class="btn btn-primary" style="font-size:0.95rem; padding:0.3rem 1rem;">Register</button>
                     </div>
-                    <div style="text-align:center; margin: 1rem 0;">or</div>
-                    <button type="button" class="btn btn-google" id="google-register-btn">
-                        <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google" style="width:20px; height:20px;"> Register with Google
+                    <div style="text-align:center; margin: 0.7rem 0; font-size:0.95rem;">or</div>
+                    <button type="button" class="btn btn-google" id="google-register-btn" style="font-size:0.95rem; padding:0.3rem 1rem;">
+                        <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google" style="width:18px; height:18px; vertical-align:middle;"> Register with Google
                     </button>
                 </form>
                 <div class="account-switch">

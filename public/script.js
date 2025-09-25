@@ -168,8 +168,43 @@ sendCodeBtn.addEventListener('click', async () => {
 
 loginForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const email = document.getElementById('login-email').value;
+    const identifier = document.getElementById('login-identifier').value;
+    const email = document.getElementById('login-email') ? document.getElementById('login-email').value : '';
+    const password = document.getElementById('login-password').value;
     const code = document.getElementById('login-code').value;
+    // If password login button was clicked
+    if (document.activeElement && document.activeElement.id === 'login-password-btn') {
+        if (!identifier || !password) {
+            alert('Please enter your username/email and password.');
+            return;
+        }
+        const loginPasswordBtn = document.getElementById('login-password-btn');
+        loginPasswordBtn.disabled = true;
+        loginPasswordBtn.textContent = 'Logging in...';
+        try {
+            const res = await fetch('/auth/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username: identifier, email: identifier, password })
+            });
+            const data = await res.json();
+            if (res.ok) {
+                loginBtn.style.display = 'none';
+                profileNameContainer.style.display = 'block';
+                profileNameContainer.innerHTML = `<a href="#" id="logout-btn">${data.user ? data.user.username : identifier}</a>`;
+                loginModal.style.display = 'none';
+                loginForm.reset();
+            } else {
+                alert(data.message || 'Invalid credentials.');
+            }
+        } catch (err) {
+            alert('Network error.');
+        }
+        loginPasswordBtn.disabled = false;
+        loginPasswordBtn.textContent = 'Login with Password';
+        return;
+    }
+    // Otherwise, code login
     if (!email || !code) {
         alert('Please enter your email and code.');
         return;
@@ -177,14 +212,13 @@ loginForm.addEventListener('submit', async (e) => {
     loginCodeBtn.disabled = true;
     loginCodeBtn.textContent = 'Verifying...';
     try {
-        const res = await fetch('/auth/verify-code', {
+        const res = await fetch('/auth/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, code })
         });
         const data = await res.json();
         if (res.ok) {
-            // Success: update UI
             loginBtn.style.display = 'none';
             profileNameContainer.style.display = 'block';
             profileNameContainer.innerHTML = `<a href="#" id="logout-btn">${data.user.username}</a>`;
@@ -211,10 +245,19 @@ googleLoginBtn.addEventListener('click', () => {
 
 
 
+
 // Hide code group on page load
 document.addEventListener('DOMContentLoaded', function() {
     if (codeGroup) codeGroup.style.display = 'none';
     sentCode = '';
+    // Activate Google register button
+    const googleRegisterBtn = document.getElementById('google-register-btn');
+    if (googleRegisterBtn) {
+        googleRegisterBtn.disabled = false;
+        googleRegisterBtn.addEventListener('click', function() {
+            window.location.href = '/auth/google';
+        });
+    }
 });
 
 
@@ -228,8 +271,15 @@ profileNameContainer.addEventListener('click', function(e) {
             loginBtn.style.display = 'inline-block';
             loginBtn.textContent = 'LOG IN';
             sentCode = '';
-            localStorage.removeItem('loggedInUser');
+            localStorage.removeItem('cabUser');
         }
+    }
+      const cabUser = localStorage.getItem('cabUser');
+    if (cabUser) {
+        const user = JSON.parse(cabUser);
+        loginBtn.style.display = 'none';
+        profileNameContainer.style.display = 'block';
+        profileNameContainer.innerHTML = `<a href="#" id="logout-btn">${user.username}</a>`;
     }
 });
 
@@ -256,11 +306,11 @@ const loginFormContainer = document.getElementById('login-form-container');
 if (registerForm) {
     registerForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-        const name = document.getElementById('register-name').value;
+        const username = document.getElementById('register-username').value;
         const email = document.getElementById('register-email').value;
         const password = document.getElementById('register-password').value;
         const referral = document.getElementById('register-referral').value;
-        if (!name || !email || !password) {
+        if (!username || !email || !password) {
             alert('Please fill in all required fields.');
             return;
         }
@@ -271,7 +321,7 @@ if (registerForm) {
             const res = await fetch('/auth/register', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ name, email, password, referral })
+                body: JSON.stringify({ username, email, password, referral })
             });
             const data = await res.json();
             if (res.ok) {
