@@ -148,8 +148,14 @@ router.post('/register', (req, res) => {
     return res.status(400).json({ message: 'User already exists' });
   }
   users.push({ username, email, password });
-  saveUsers(users);
-  res.json({ message: 'Registration successful' });
+  try {
+    saveUsers(users);
+    console.log('User registered and saved:', { username, email });
+    res.json({ message: 'Registration successful' });
+  } catch (err) {
+    console.error('Error saving user to users.json:', err);
+    res.status(500).json({ message: 'Failed to save user' });
+  }
 });
 
 // Login (local, not used for Google)
