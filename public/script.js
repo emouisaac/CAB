@@ -6,22 +6,32 @@ function getQueryParam(name) {
 
 // On every page load, check backend for logged-in user (Google or local)
 document.addEventListener('DOMContentLoaded', function() {
-    fetch('/auth/user', { credentials: 'include' })
-        .then(res => res.json())
-        .then(user => {
-            if (user && user.displayName) {
-                loginBtn.style.display = 'none';
-                profileNameContainer.style.display = 'block';
-                profileNameContainer.innerHTML = `<a href="#" id="logout-btn">${user.displayName}</a>`;
-            } else {
+    // If password/code login, persist via localStorage until manual logout
+    const cabUser = localStorage.getItem('cabUser');
+    if (cabUser) {
+        const user = JSON.parse(cabUser);
+        loginBtn.style.display = 'none';
+        profileNameContainer.style.display = 'block';
+        profileNameContainer.innerHTML = `<a href="#" id="logout-btn">${user.username}</a>`;
+    } else {
+        // Otherwise, check backend for Google login
+        fetch('/auth/user', { credentials: 'include' })
+            .then(res => res.json())
+            .then(user => {
+                if (user && user.displayName) {
+                    loginBtn.style.display = 'none';
+                    profileNameContainer.style.display = 'block';
+                    profileNameContainer.innerHTML = `<a href="#" id="logout-btn">${user.displayName}</a>`;
+                } else {
+                    loginBtn.style.display = 'inline-block';
+                    profileNameContainer.style.display = 'none';
+                }
+            })
+            .catch(() => {
                 loginBtn.style.display = 'inline-block';
                 profileNameContainer.style.display = 'none';
-            }
-        })
-        .catch(() => {
-            loginBtn.style.display = 'inline-block';
-            profileNameContainer.style.display = 'none';
-        });
+            });
+    }
 });
 const pages = document.querySelectorAll('.page');
 // Initialize AOS
@@ -189,6 +199,8 @@ loginForm.addEventListener('submit', async (e) => {
             });
             const data = await res.json();
             if (res.ok) {
+                // Store user info in localStorage for all login methods
+                localStorage.setItem('cabUser', JSON.stringify(data.user));
                 loginBtn.style.display = 'none';
                 profileNameContainer.style.display = 'block';
                 profileNameContainer.innerHTML = `<a href="#" id="logout-btn">${data.user ? data.user.username : identifier}</a>`;
@@ -219,6 +231,8 @@ loginForm.addEventListener('submit', async (e) => {
         });
         const data = await res.json();
         if (res.ok) {
+            // Store user info in localStorage for all login methods
+            localStorage.setItem('cabUser', JSON.stringify(data.user));
             loginBtn.style.display = 'none';
             profileNameContainer.style.display = 'block';
             profileNameContainer.innerHTML = `<a href="#" id="logout-btn">${data.user.username}</a>`;
@@ -266,21 +280,27 @@ document.addEventListener('DOMContentLoaded', function() {
 profileNameContainer.addEventListener('click', function(e) {
     if (e.target && e.target.id === 'logout-btn') {
         if (confirm('Do you want to log out?')) {
-            // Hide username, show LOGIN button
-            profileNameContainer.style.display = 'none';
-            loginBtn.style.display = 'inline-block';
-            loginBtn.textContent = 'LOG IN';
-            sentCode = '';
-            localStorage.removeItem('cabUser');
+            // Notify backend to destroy session (Google, password, or code login)
+            fetch('/auth/logout', { method: 'POST', credentials: 'include' })
+                .then(() => {
+                    // Always clear localStorage after backend logout
+                    localStorage.removeItem('cabUser');
+                    profileNameContainer.style.display = 'none';
+                    loginBtn.style.display = 'inline-block';
+                    loginBtn.textContent = 'LOG IN';
+                    sentCode = '';
+                })
+                .catch(() => {
+                    // Even if backend fails, clear local state
+                    localStorage.removeItem('cabUser');
+                    profileNameContainer.style.display = 'none';
+                    loginBtn.style.display = 'inline-block';
+                    loginBtn.textContent = 'LOG IN';
+                    sentCode = '';
+                });
         }
     }
-      const cabUser = localStorage.getItem('cabUser');
-    if (cabUser) {
-        const user = JSON.parse(cabUser);
-        loginBtn.style.display = 'none';
-        profileNameContainer.style.display = 'block';
-        profileNameContainer.innerHTML = `<a href="#" id="logout-btn">${user.username}</a>`;
-    }
+    // ...existing code...
 });
 
 // Copy Referral Code
