@@ -3,1069 +3,2402 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CoinAcademia - Master Cryptocurrency, Trading & Investment</title>
-    <meta name="robots" content="index, follow">
-    <meta name="googlebot" content="index, follow">
-    <meta name="description" content="Learn cryptocurrency trading, blockchain technology, and digital asset investment with expert-led courses at CoinAcademia.">
-    <meta name="keywords" content="cryptocurrency, blockchain, education, news, trading, investment">
-    <link rel="canonical" href="https://www.coinacademia.in" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="icon" href="/images/icon.jpeg" type="image/x-icon">
-    <link rel="stylesheet" href="/styles.css">
+    <title>Teleka Taxi | Airport & City Services</title>
+    <link rel="icon" href="/ims/telicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-    .modal-content {
-        padding: 2.5rem 2rem 2rem 2rem;
-        border-radius: 12px;
-        background: var(--modal-bg, #fff);
-        box-shadow: 0 8px 32px rgba(0,0,0,0.18);
-        max-width: 400px;
-        margin: 2rem auto;
-        position: relative;
-        color: var(--modal-text, #222);
-    }
-    .modal-close {
-        position: absolute;
-        top: 1rem;
-        right: 1rem;
-        background: none;
-        border: none;
-        font-size: 1.5rem;
-        color: #888;
-        cursor: pointer;
-    }
-    .form-input {
-        background: var(--input-bg, #f9f9f9);
-        color: var(--input-text, #222);
-        border: 1px solid #ddd;
-    }
-    .form-input:focus {
-        border-color: #007bff;
-        outline: none;
-    }
-    .btn-google {
-        background: var(--google-btn-bg, #fff);
-        color: var(--google-btn-text, #444);
-        border: 1px solid #ccc;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-        margin-top: 0.5rem;
-        transition: background 0.2s, color 0.2s;
-    }
-    .btn-google img {
-        filter: none;
-        transition: filter 0.2s;
-    }
-    body.dark-mode .modal-content {
-        --modal-bg: #222;
-        --modal-text: #f5f5f5;
-    }
-    body.dark-mode .form-input {
-        --input-bg: #333;
-        --input-text: #f5f5f5;
-        border: 1px solid #444;
-    }
-    body.dark-mode .btn-google {
-        --google-btn-bg: #333;
-        --google-btn-text: #f5f5f5;
-        border: 1px solid #555;
-    }
-    body.dark-mode .btn-google img {
-        filter: brightness(0) invert(1) grayscale(1) contrast(100);
-    }
+        :root {
+            --primary: #2549eb;
+            --primary-dark: #1d26d8;
+            --secondary: #f59e0b;
+            --accent: #10b981;
+            --text: #1f2937;
+            --text-light: #6b7280;
+            --bg: #cdd5e4; /* slightly gray background for light mode */
+            --bg-secondary: #dfe6ee;
+            --bg-tertiary: #b9babc;
+            --border: #e5e7eb;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --transition: all 0.3s ease;
+        }
+
+        .dark-mode {
+            --primary: #f6c13b;
+            --primary-dark: #2563eb;
+            --secondary: #f59e0b;
+            --accent: #10b981;
+            --text: #f9fafb;
+            --text-light: #d1d5db;
+            --bg: #111827;
+            --bg-secondary: #1f2937;
+            --bg-tertiary: #374151;
+            --border: #4b5563;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            transition: var(--transition);
+        }
+
+        /* Ensure mobile nav controls are hidden on large screens */
+        .mobile-menu,
+        .nav-close { display: none; }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary);
+        }
+
+        .btn-secondary:hover {
+            background-color: #e69500;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--text);
+        }
+
+        .section-title p {
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        header {
+            padding-left: 30px;
+            padding-right: 30px;
+            background-color: var(--bg);
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .logo i {
+            font-size: 1.8rem;
+        }
+
+        .logo-icon {
+            height: 38px;
+            width: auto;
+            margin-right: 10px;
+            vertical-align: middle;
+            display: inline-block;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            pointer-events: auto;
+            z-index: 101;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: var(--transition);
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            pointer-events: auto;
+            z-index: 101;
+            padding: 8px 12px;
+            min-width: 44px;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .theme-toggle:hover {
+            color: var(--primary);
+        }
+
+        .mobile-menu {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text);
+            cursor: pointer;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            pointer-events: auto;
+            z-index: 101;
+            padding: 8px 12px;
+            min-width: 44px;
+            min-height: 44px;
+            align-items: center;
+            justify-content: center;
+        }
+        /* Hide the nav close X on larger screens; show only on small viewports */
+        .nav-close { display: none; }
+
+        /* Hero Section */
+        .hero {
+            padding-top: 100px;
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: var(--text);
+        }
+
+        /* Animated dynamic hero-content1 headings */
+        .hero-content1 {
+            position: relative;
+            min-height: 50px;
+            overflow: hidden;
+            display: block;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.51), rgba(0, 0, 0, 0.526)), url('/ims/pexels-cottonbro-4606345.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            border-radius: 8px;
+        }
+
+        .hero-content1 h1 {
+            padding: 8px 14px;
+            color: var(--secondary); /* orange */
+            font-weight: 700;
+            text-shadow: 0 1px 0 rgba(0,0,0,0.45);
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            transform: translateX(100%);
+            opacity: 0;
+            white-space: nowrap;
+            font-size: 2rem;
+            line-height: 1.2;
+            margin: 0;
+            transition: transform 900ms cubic-bezier(.2,.9,.2,1), opacity 600ms ease;
+            -webkit-transition: transform 900ms cubic-bezier(.2,.9,.2,1), opacity 600ms ease;
+            background-color: rgba(0,0,0,0.18); /* keep subtle overlay for readability */
+        }
+
+        .hero-content1 h1.active {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        .hero-content1 h1.exit {
+            transform: translateX(-100%);
+            opacity: 0;
+        }
+
+        /* Respect reduced motion preference */
+        @media (prefers-reduced-motion: reduce) {
+            .hero-content1 h1 { transition: none; transform: none; opacity: 1; position: static; }
+            .hero-content1 { min-height: auto; }
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        /* Gentle hero slideshow (uses images from ims/) */
+        .hero-slideshow {
+            width: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: var(--shadow);
+            min-height: 360px;
+        }
+
+        .hero-slideshow .slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-slideshow .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform-origin: center;
+            transition: transform 8s ease;
+            display: block;
+        }
+
+        .hero-slideshow .slide.active {
+            opacity: 1;
+            z-index: 1;
+        }
+
+        /* subtle Ken Burns effect while the slide is active */
+        .hero-slideshow .slide.active img {
+            animation: kenburns 12s ease-in-out both;
+        }
+
+        @keyframes kenburns {
+            0% { transform: scale(1) translateY(0); }
+            50% { transform: scale(1.04) translateY(-2%); }
+            100% { transform: scale(1) translateY(0); }
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .stat-text {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Services */
+        .services {
+            background-color: var(--bg-secondary);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: var(--bg);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.8rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--text);
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        /* Booking */
+        .booking {
+            background-color: var(--bg);
+        }
+
+        .booking-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .booking-form {
+            background-color: var(--bg-secondary);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background-color: var(--bg);
+            color: var(--text);
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+            .price-display {
+                background-color: var(--bg-secondary);
+                padding: 16px;
+                border-radius: 8px;
+                border: 1px solid var(--border);
+                color: var(--text);
+            }
+
+        
+
+        /* Request Ride Modal + Map */
+        .modal {
+            position: fixed;
+            inset: 0;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 3000;
+        }
+
+        .modal.open { display: flex; }
+
+        .modal-backdrop {
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.45);
+        }
+
+        .modal-panel {
+            position: relative;
+            background: var(--bg-secondary);
+            padding: 18px;
+            width: 100%;
+            max-width: 760px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+            z-index: 3100;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        #requestMap { height: 320px; width: 100%; border-radius: 8px; }
+
+        .modal-actions { display:flex; gap:10px; justify-content:flex-end; }
+
+        .request-info { font-size:0.95rem; color:var(--text-light); }
+
+            .price-display.loading {
+                opacity: 0.7;
+            }
+
+            .price-info {
+                display: grid;
+                gap: 8px;
+            }
+
+            .price-amount {
+                font-size: 1.5rem;
+                font-weight: 600;
+                color: var(--accent);
+            }
+
+            .trip-details {
+                display: flex;
+                justify-content: space-between;
+                font-size: 0.9rem;
+                color: var(--text-light);
+                margin-top: 8px;
+                padding-top: 8px;
+                border-top: 1px solid var(--border);
+            }
+
+            .traffic-level {
+                display: flex;
+                align-items: center;
+                gap: 4px;
+            }
+
+            .traffic-level[data-level="High"] {
+                color: #ef4444;
+            }
+
+            .traffic-level[data-level="Medium"] {
+                color: #f59e0b;
+            }
+
+            .traffic-level[data-level="Low"] {
+                color: #10b981;
+            }
+
+            .request-coords { margin-top: 6px; }
+            #requestPrice {
+                font-size: 1.25rem;
+                font-weight: 700;
+                color: var(--accent);
+                padding: 8px 10px;
+                border-radius: 6px;
+                background: rgba(16,185,129,0.06);
+                display: inline-block;
+            }
+
+        .booking-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        /* Features */
+        .features {
+            background-color: var(--bg-secondary);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background-color: var(--bg);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--accent);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.5rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--text);
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: var(--bg);
+        }
+
+        .contact-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .contact-card {
+            background-color: var(--bg-secondary);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .contact-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--text);
+        }
+
+        .contact-card p {
+            color: var(--text-light);
+            margin-bottom: 8px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--bg-tertiary);
+            padding: 60px 0 30px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--text);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary);
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-light);
+            transition: var(--transition);
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background-color: var(--bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text);
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid var(--border);
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-container, .booking-container {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                padding-left: 30px;
+                padding-right: 30px;
+            }
+
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-close {
+                display: block;
+            }
+
+            header {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+            /* Mobile sliding nav: keep the links off-canvas and slide them in from the right */
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: 0;
+                height: 100vh;
+                width: 280px;
+                max-width: calc(100% - 60px);
+                background: var(--bg);
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
+                padding: 100px 18px 20px 18px; /* leave space for header */
+                gap: 12px;
+                box-shadow: -6px 0 20px rgba(0,0,0,0.12);
+                transform: translateX(110%); /* off-screen */
+                transition: transform 0.35s ease;
+                z-index: 1600;
+            }
+
+            .nav-links a {
+                padding: 12px 8px;
+                font-size: 1.05rem;
+                border-bottom: 1px solid var(--border);
+                color: var(--text);
+                pointer-events: auto;
+            }
+
+            .nav-links.open {
+                transform: translateX(0); /* slide in */
+            }
+
+            /* translucent backdrop when menu is open */
+            .nav-overlay {
+                display: none;
+                position: fixed;
+                inset: 0;
+                background: rgba(0,0,0,0.38);
+                z-index: 1500;
+                opacity: 0;
+                transition: opacity 0.25s ease;
+                pointer-events: none;
+            }
+
+            .nav-overlay.active { display: block; opacity: 1; }
+
+            /* close button inside mobile nav */
+            .nav-close {
+                position: absolute;
+                top: 18px;
+                right: 18px;
+                background: none;
+                border: none;
+                font-size: 1.4rem;
+                color: var(--text);
+                cursor: pointer;
+                padding: 8px;
+            }
+
+            .nav-close:focus { outline: 2px solid var(--primary); border-radius: 6px; }
+
+            /* Prevent body scroll when nav is open */
+            .no-scroll { overflow: hidden; }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            /* Ensure mobile menu icons always display on small screens (covers both variations) */
+            .mobile-menu,
+            .mobile-menu-btn { display: block !important; }
+
+            .hero-content h1 {
+                font-size: 2.3rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            header {
+                padding-left: 22px;
+                padding-right: 22px;
+            }
+
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+
+            .service-card, .feature-card, .testimonial-card, .booking-form {
+                padding: 20px;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        /* WhatsApp chat widget styles */
+        .whatsapp-fab {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            padding: 12px 18px;
+            min-width: 140px;
+            height: auto;
+            background: linear-gradient(90deg, var(--secondary), #e69500 90%);
+            color: #fff;
+            border-radius: 999px; /* pill */
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.12), 0 6px 12px rgba(0,0,0,0.08);
+            cursor: pointer;
+            z-index: 2000;
+            transition: transform 180ms cubic-bezier(.2,.9,.2,1), filter 180ms ease, box-shadow 180ms ease;
+            border: none;
+        }
+
+        .whatsapp-fab:hover {
+            transform: translateY(-6px);
+            filter: brightness(1.02);
+            box-shadow: 0 14px 40px rgba(37, 99, 235, 0.14), 0 8px 18px rgba(0,0,0,0.12);
+        }
+
+        .whatsapp-fab:focus {
+            outline: 3px solid rgba(245, 158, 11, 0.22);
+            outline-offset: 3px;
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.12);
+        }
+
+        .whatsapp-panel {
+            position: fixed;
+            right: 20px;
+            bottom: 90px;
+            width: 320px;
+            max-width: calc(100% - 40px);
+            background: var(--bg);
+            color: var(--text);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            overflow: hidden;
+            z-index: 2000;
+            display: none;
+        }
+
+        .whatsapp-panel.open { display: block; }
+
+        .whatsapp-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 14px;
+            background: #075E54;
+            color: white;
+        }
+
+        .whatsapp-header .title { font-weight: 700; }
+
+        .whatsapp-body { padding: 12px 14px; }
+
+        .whatsapp-body p { margin-bottom: 8px; color: var(--text-light); font-size: 0.95rem; }
+
+        .whatsapp-input {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            resize: vertical;
+            min-height: 60px;
+            font-family: inherit;
+            margin-bottom: 8px;
+        }
+
+        .whatsapp-actions { display: flex; gap: 8px; }
+
+        .whatsapp-actions .btn { flex: 1; }
+
+        @media (max-width: 480px) {
+            .whatsapp-panel { right: 12px; left: 12px; width: auto; bottom: 80px; }
+            .whatsapp-fab { right: 12px; bottom: 12px; }
+        }
+
+        /* Contact card interactivity */
+        .contact-card--clickable { cursor: pointer; transition: transform 160ms ease, box-shadow 160ms ease; }
+        .contact-card--clickable:hover { transform: translateY(-6px); box-shadow: 0 10px 30px rgba(0,0,0,0.06); }
+
+        /* Contact modal */
+        .contact-modal {
+            position: fixed;
+            inset: 0;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 3000;
+            padding: 20px;
+        }
+        .contact-modal.open { display: flex; }
+        .contact-modal .modal-content {
+            background: var(--bg);
+            color: var(--text);
+            padding: 18px;
+            border-radius: 12px;
+            width: 380px;
+            max-width: calc(100% - 40px);
+            box-shadow: 0 14px 40px rgba(2,6,23,0.12);
+        }
+        .contact-modal .modal-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; }
+        .contact-modal .modal-header h3 { margin:0; font-size:1.1rem; }
+        .contact-modal .modal-body p { margin: 0 0 12px 0; color: var(--text-light); }
+        .contact-modal .modal-actions { display:flex; gap:10px; }
+        .contact-modal .modal-actions .btn { flex: 1; }
+        .contact-modal .contact-value { font-weight:700; color: var(--primary); margin-bottom:8px; }
+
+        /* Google Places Autocomplete styles */
+        /* Loading animation and reusable classes */
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        .loading {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .loading::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, var(--bg), var(--bg-tertiary), var(--bg));
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite linear;
+        }
+
+        .has-price {
+            color: var(--accent);
+            font-weight: 600;
+        }
+         
+
+        @keyframes loading-bar {
+            0% { background-position: 100% 0; }
+            100% { background-position: -100% 0; }
+        }
+
+        /* Recent searches indicator */
+        .pac-item.recent {
+            background-color: var(--bg-tertiary);
+        }
+        .pac-item.recent::before {
+            content: '↻';
+            margin-right: 8px;
+            color: var(--text-light);
+        }
+
+        .pac-item-query {
+            font-size: 14px;
+            color: var(--text);
+        }
+
+        .pac-matched {
+            color: var(--primary);
+            font-weight: 600;
+        }
     </style>
 </head>
 <body>
     <!-- Header -->
     <header>
-        <div class="nav-container">
-            <div class="logo">
-                <img src="/images/icon1.png" alt="CoinAcademia Logo">
-                <span>CoinAcademia</span>
-            </div>
-            <button class="mobile-menu-btn">☰</button>
-            <nav>
-                <button class="close-menu-btn" style="display:none">&times;</button>
-                <ul class="nav-list">
-                    <li><a href="#home" class="nav-link active" data-page="home">HOME</a></li>
-                    <li><a href="#courses" class="nav-link" data-page="courses">COURSES</a></li>
-                    <li><a href="#market" class="nav-link" data-page="market">MARKET</a></li>
-                    <li><a href="#about" class="nav-link" data-page="about">ABOUT US</a></li>
-                    <li><a href="#blogs" class="nav-link" data-page="blogs">BLOGS</a></li>
-                    <li><a href="#affiliate" class="nav-link" data-page="affiliate">AFFILIATE</a></li>
-                    <li><a href="#contact" class="nav-link" data-page="contact">CONTACT</a></li>
-                    <li><a href="/charts.html" class="#">CHART PATTERNS</a></li>
-                    <li><a href="#" id="login-btn">LOG IN</a></li>
-                    <li id="profile-name-container" style="display:none;"></li>
-                    <button class="theme-toggle">🌙</button>
-                </ul>
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <img src="ims/1110.png" alt="Teleka Taxi" class="logo-icon">
+                <span>TelekaTaxi</span>
+            </a>
+            
+            <nav class="nav-links" aria-label="Primary navigation">
+                <button class="nav-close" aria-label="Close menu"><i class="fas fa-times"></i></button>
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#booking">Booking</a>
+                <a href="#features">Features</a>
+                <a href="#contact">Contact</a>
             </nav>
+            
+            <div class="header-actions">
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
         </div>
     </header>
+    <div id="navOverlay" class="nav-overlay" aria-hidden="true"></div>
 
-    <!-- Main Content -->
-    <main>
-        <!-- Home Page -->
-        <section class="page active" id="home-page">
-            <div class="market-scroll">
-                <marquee behavior="scroll" direction="left" scrollamount="6" id="coin-ticker">
-                    Loading market data...
-                </marquee>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content1">
+                <h1>Airport Transfers</h1>
+                <h1>City Rides</h1>
+                <h1>Business Trips</h1>
+                <h1>Tours and Travel</h1>
+                <h1>24/7 Availability</h1>
+                <h1>Professional Drivers</h1>
+                <h1>We are pocket-friendly</h1>
             </div>
-            <Section class="section1">
-                <div class="row">
-                    <div class="col">
-                        <h1>Welcome to Coin Academia</h1>
-                        <p>Your source for Forex and cryptocurrency education and news.</p>
-                        
-                    </div>
-                    <div class="col">
-                        <img src="/images/icon1.png" alt="Coin Image">
-            
-                    </div>
+        <div class="container hero-container">
 
+            <div class="hero-content">
+                <h1>Reliable Taxi Service for Airport & City Rides</h1>
+                <p>Experience comfortable and timely rides with our professional taxi service. We ensure you reach your destination safely, whether it's the airport or anywhere in the city.</p>
+                <div class="hero-buttons">
+                    <button id="requestRideBtn" class="btn">Request a Ride</button>
+                    <a href="#services" class="btn btn-outline">Our Services</a>
                 </div>
-            </Section>
-
-
-
-
-
-
-            <!-- Hero Section -->
-        <section id="home" class="hero-section">
-            <div class="hero-background">
-                <div class="animated-bg"></div>
+                <!-- Removed demo stats -->
             </div>
-            <div class="container">
-                <div class="row align-items-center min-vh-100">
-                    <div class="col-lg-6" data-aos="fade-up" data-aos-duration="1000">
-                        <div class="hero-content">
-                            <h1 class="hero-title">
-                                Master the Future of
-                                <span class="text-gradient">Cryptocurrency</span>
-                            </h1>
-                            <p class="hero-subtitle">
-                                Learn from industry experts and master cryptocurrency trading, blockchain technology, 
-                                and digital asset investment strategies with our comprehensive courses.
-                            </p>
-                            <div class="hero-stats">
-                                <div class="stat-item">
-                                    <div class="stat-number" data-count="10000">367</div>
-                                    <div class="stat-label">Students Taught</div>
-                                </div>
-                                <div class="stat-item">
-                                    <div class="stat-number" data-count="50">20</div>
-                                    <div class="stat-label">Expert Courses</div>
-                                </div>
-                                <div class="stat-item">
-                                    <div class="stat-number" data-count="95">56</div>
-                                    <div class="stat-label">Success Rate</div>
-                                </div>
-                            </div>
-                            <div class="hero-actions">
-                                <a href="#courses" class="btn btn-primary btn-lg me-3">
-                                    <i class="fas fa-play me-2"></i>Start Learning
-                                </a>
-                                <a href="#market" class="btn btn-outline-light btn-lg">
-                                    <i class="fas fa-chart-line me-2"></i>View Market
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
-                        <div class="hero-visual">
-                            <div class="floating-card card-1">
-                                <i class="fab fa-bitcoin"></i>
-                                <span>Bitcoin</span>
-                            </div>
-                            <div class="floating-card card-2">
-                                <i class="fab fa-ethereum"></i>
-                                <span>Ethereum</span>
-                            </div>
-                            <div class="floating-card card-3">
-                                <i class="fas fa-chart-line"></i>
-                                <span>Trading</span>
-                            </div>
-                            <div class="central-graphic">
-                                <div class="pulse-ring"></div>
-                                <div class="crypto-icon">
-                                    <i class="fas fa-coins"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <div class="hero-image">
+                <div class="hero-slideshow" aria-hidden="false">
+                    <div class="slide"><img src="ims/customer.jpg" alt="Customer"></div>
+                    <div class="slide"><img src="ims/pexels-cottonbro-4606345.jpg" alt="Taxi on street"></div>
+                    <div class="slide"><img src="ims/pexels-cottonbro-4606402.jpg" alt="Car interior"></div>
+                    <div class="slide"><img src="ims/pexels-ono-kosuki-5647632.jpg" alt="Driver"></div>
                 </div>
-            </div>
-        </section>
-
-
-
-
-
-
-            <section class="pad">
-
-            <!-- Market Overview -->
-            <section id="market" class="market-section">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12 text-center mb-5">
-                            <h2 class="section-title">Live Market Overview</h2>
-                            <p class="section-subtitle">Real-time cryptocurrency market data and statistics</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Market Stats -->
-                    <div class="row mb-5">
-                        <div class="col-md-3 col-sm-6 mb-4">
-                            <div class="market-stat-card">
-                                <div class="stat-icon">
-                                    <i class="fas fa-globe"></i>
-                                </div>
-                                <div class="market-stats">
-                                    <div class="stat-value" id="marketCap">Loading...</div>
-                                    <div>Total Market Cap</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6 mb-4">
-                            <div class="market-stat-card">
-                                <div class="stat-icon">
-                                    <i class="fas fa-exchange-alt"></i>
-                                </div>
-                                <div class="stat-info">
-                                    <div class="stat-value" id="volume">Loading...</div>
-                                    <div>24h Volume</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6 mb-4">
-                            <div class="market-stat-card">
-                                <div class="stat-icon">
-                                    <i class="fab fa-bitcoin"></i>
-                                </div>
-                                <div class="stat-info">
-                                    <div class="stat-value" id="btcDominance">Loading...</div>
-                                    <div>Bitcoin Dominance</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6 mb-4">
-                            <div class="market-stat-card">
-                                <div class="stat-icon">
-                                    <i class="fas fa-chart-line"></i>
-                                </div>
-                                <div class="stat-info">
-                                    <div class="stat-value" id="ethDominance">Loading...</div>
-                                    <div>Ethereum Dominance</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Top Cryptocurrencies -->
-                    <div class="crypto-table-container">
-                        <h3 class="mb-4">Top Cryptocurrencies by Market Cap</h3>
-                        <div class="table-responsive">
-                            <table class="crypto-table">
-                                <thead>
-                                    <tr>
-                                        <th>Rank</th>
-                                        <th>Name</th>
-                                        <th>Price</th>
-                                        <th>24h Change</th>
-                                        <th>Market Cap</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="crypto-table-body">
-                                    <!-- Crypto data will be populated here -->
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                </section>
-            </section>
-
-            <!-- Courses Section -->
-            <section id="courses" class="courses-section">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12 text-center mb-5">
-                            <h2 class="section-title">Our Courses</h2>
-                            <p class="section-subtitle">Learn from industry experts with our comprehensive cryptocurrency courses</p>
-                        </div>
-                    </div>
-                    
-                    <div class="row" id="courses-container">
-                        <!-- Courses will be populated here -->
-                    </div>
-                </div>
-            </section>
-
-            <!-- About Section -->
-            <section class="pad">
-            <section id="about" class="about-section">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12 text-center mb-5">
-                            <h2 class="section-title">About CoinAcademia</h2>
-                            <p class="section-subtitle">Your trusted partner in cryptocurrency education</p>
-                        </div>
-                    </div>
-                    
-                    <div class="row">
-                        <div class="col-lg-6 mb-4">
-                            <h3 class="mb-4">Our Mission</h3>
-                            <p class="mb-4">
-                                CoinAcademia was founded with a simple mission: to make cryptocurrency education accessible to everyone. 
-                                We believe that understanding blockchain technology and digital assets is essential for financial literacy in the 21st century.
-                            </p>
-                            <p class="mb-4">
-                                Our team of industry experts, traders, and educators have developed comprehensive courses that cater to all experience levels, 
-                                from complete beginners to advanced traders looking to refine their strategies.
-                            </p>
-                            <div class="feature-list">
-                                <div class="feature-item">
-                                    <div class="feature-icon">
-                                        <i class="fas fa-graduation-cap"></i>
-                                    </div>
-                                    <div class="feature-content">
-                                        <h5>Expert-Led Courses</h5>
-                                        <p>Learn from industry professionals with years of experience in cryptocurrency trading and blockchain technology.</p>
-                                    </div>
-                                </div>
-                                <div class="feature-item">
-                                    <div class="feature-icon">
-                                        <i class="fas fa-chart-line"></i>
-                                    </div>
-                                    <div class="feature-content">
-                                        <h5>Real-Time Market Analysis</h5>
-                                        <p>Access up-to-date market data and analysis to make informed trading decisions.</p>
-                                    </div>
-                                </div>
-                                <div class="feature-item">
-                                    <div class="feature-icon">
-                                        <i class="fas fa-users"></i>
-                                    </div>
-                                    <div class="feature-content">
-                                        <h5>Community Support</h5>
-                                        <p>Join a thriving community of learners and traders to share insights and strategies.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 mb-4">
-                            <h3 class="mb-4">Our Achievements</h3>
-                            <div class="achievement-cards">
-                                <div class="achievement-card">
-                                    <div class="achievement-icon">
-                                        <i class="fas fa-user-graduate"></i>
-                                    </div>
-                                    <div class="achievement-text">
-                                        <h4>10,000+</h4>
-                                        <p>Students Enrolled</p>
-                                    </div>
-                                </div>
-                                <div class="achievement-card">
-                                    <div class="achievement-icon">
-                                        <i class="fas fa-certificate"></i>
-                                    </div>
-                                    <div class="achievement-text">
-                                        <h4>50+</h4>
-                                        <p>Expert Courses</p>
-                                    </div>
-                                </div>
-                                <div class="achievement-card">
-                                    <div class="achievement-icon">
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                    <div class="achievement-text">
-                                        <h4>4.9/5</h4>
-                                        <p>Average Rating</p>
-                                    </div>
-                                </div>
-                                <div class="achievement-card">
-                                    <div class="achievement-icon">
-                                        <i class="fas fa-globe"></i>
-                                    </div>
-                                    <div class="achievement-text">
-                                        <h4>100+</h4>
-                                        <p>Countries Reached</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            </section>
-        </section>
-
-        <!-- Courses Page -->
-        <section class="page" id="courses-page">
-            <div class="container mt-5">
-                <div class="row">
-                    <div class="col-12 text-center mb-5">
-                        <h2 class="section-title">All Courses</h2>
-                        <p class="section-subtitle">Browse our complete catalog of cryptocurrency courses</p>
-                    </div>
-                </div>
-                
-                <div class="row" id="all-courses-container">
-                    <!-- All courses will be populated here -->
-                </div>
-            </div>
-        </section>
-
-        <!-- Market Page -->
-        <section class="page" id="market-page">
-            <div class="container mt-5">
-                <div class="row">
-                    <div class="col-12 text-center mb-5">
-                        <h2 class="section-title">Cryptocurrency Market</h2>
-                        <p class="section-subtitle">Real-time prices, charts, and market analysis</p>
-                    </div>
-                </div>
-                
-                <!-- Market Stats -->
-                <div class="row mb-5">
-                    <div class="col-md-3 col-sm-6 mb-4">
-                        <div class="market-stat-card">
-                            <div class="stat-icon">
-                                <i class="fas fa-globe"></i>
-                            </div>
-                            <div class="market-stats">
-                                <div class="stat-value" id="marketCap2">Loading...</div>
-                                <div>Total Market Cap</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6 mb-4">
-                        <div class="market-stat-card">
-                            <div class="stat-icon">
-                                <i class="fas fa-exchange-alt"></i>
-                            </div>
-                            <div class="stat-info">
-                                <div class="stat-value" id="volume2">Loading...</div>
-                                <div>24h Volume</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6 mb-4">
-                        <div class="market-stat-card">
-                            <div class="stat-icon">
-                                <i class="fab fa-bitcoin"></i>
-                            </div>
-                            <div class="stat-info">
-                                <div class="stat-value" id="btcDominance2">Loading...</div>
-                                <div>Bitcoin Dominance</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6 mb-4">
-                        <div class="market-stat-card">
-                            <div class="stat-icon">
-                                <i class="fas fa-chart-line"></i>
-                            </div>
-                            <div class="stat-info">
-                                <div class="stat-value" id="ethDominance2">Loading...</div>
-                                <div>Ethereum Dominance</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Crypto Table -->
-                <div class="crypto-table-container">
-                    <h3 class="mb-4">Cryptocurrency Prices</h3>
-                    <div class="table-responsive">
-                        <table class="crypto-table">
-                            <thead>
-                                <tr>
-                                    <th>Rank</th>
-                                    <th>Name</th>
-                                    <th>Price</th>
-                                    <th>24h Change</th>
-                                    <th>Market Cap</th>
-                                </tr>
-                            </thead>
-                            <tbody id="crypto-table-body2">
-                                <!-- Crypto data will be populated here -->
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- About Page -->
-        <section class="page" id="about-page">
-            <div class="container mt-5">
-                <div class="row">
-                    <div class="col-12 text-center mb-5">
-                        <h2 class="section-title">About CoinAcademia</h2>
-                        <p class="section-subtitle">Learn more about our mission, team, and values</p>
-                    </div>
-                </div>
-                
-                <div class="row">
-                    <div class="col-lg-6 mb-4">
-                        <h3 class="mb-4">Our Story</h3>
-                        <p class="mb-4">
-                            CoinAcademia was founded in 2018 by a group of cryptocurrency enthusiasts and financial experts who recognized the growing need for quality education in the blockchain space. 
-                            What started as a small community initiative has grown into a leading platform for cryptocurrency education with thousands of students worldwide.
-                        </p>
-                        <p class="mb-4">
-                            Our founders combined their expertise in finance, technology, and education to create a curriculum that demystifies complex concepts and empowers individuals to navigate the cryptocurrency landscape with confidence.
-                        </p>
-                        <h3 class="mb-4">Our Values</h3>
-                        <div class="feature-list">
-                            <div class="feature-item">
-                                <div class="feature-icon">
-                                    <i class="fas fa-shield-alt"></i>
-                                </div>
-                                <div class="feature-content">
-                                    <h5>Security First</h5>
-                                    <p>We prioritize the security of our students' information and funds in all our educational materials.</p>
-                                </div>
-                            </div>
-                            <div class="feature-item">
-                                <div class="feature-icon">
-                                    <i class="fas fa-hand-holding-usd"></i>
-                                </div>
-                                <div class="feature-content">
-                                    <h5>Financial Empowerment</h5>
-                                    <p>We believe that financial literacy is a fundamental right in the digital age.</p>
-                                </div>
-                            </div>
-                            <div class="feature-item">
-                                <div class="feature-icon">
-                                    <i class="fas fa-globe"></i>
-                                </div>
-                                <div class="feature-content">
-                                    <h5>Global Accessibility</h5>
-                                    <p>Our courses are designed to be accessible to learners from all backgrounds and regions.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 mb-4">
-                        <h3 class="mb-4">Our Team</h3>
-                        <p class="mb-4">
-                            Our team consists of industry professionals with diverse backgrounds in blockchain development, cryptocurrency trading, financial analysis, and education. 
-                            Each instructor brings unique expertise and real-world experience to our courses.
-                        </p>
-                        <div class="achievement-cards">
-                            <div class="achievement-card">
-                                <div class="achievement-icon">
-                                    <i class="fas fa-users"></i>
-                                </div>
-                                <div class="achievement-text">
-                                    <h4>15+</h4>
-                                    <p>Expert Instructors</p>
-                                </div>
-                            </div>
-                            <div class="achievement-card">
-                                <div class="achievement-icon">
-                                    <i class="fas fa-clock"></i>
-                                </div>
-                                <div class="achievement-text">
-                                    <h4>50,000+</h4>
-                                    <p>Hours of Experience</p>
-                                </div>
-                            </div>
-                            <div class="achievement-card">
-                                <div class="achievement-icon">
-                                    <i class="fas fa-award"></i>
-                                </div>
-                                <div class="achievement-text">
-                                    <h4>25+</h4>
-                                    <p>Industry Certifications</p>
-                                </div>
-                            </div>
-                            <div class="achievement-card">
-                                <div class="achievement-icon">
-                                    <i class="fas fa-graduation-cap"></i>
-                                </div>
-                                <div class="achievement-text">
-                                    <h4>10,000+</h4>
-                                    <p>Students Taught</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Blogs Page -->
-        <section class="page" id="blogs-page">
-            <div class="container mt-5">
-                <div class="row">
-                    <div class="col-12 text-center mb-5">
-                        <h2 class="section-title">Latest Blog Posts</h2>
-                        <p class="section-subtitle">Stay updated with the latest trends and insights in cryptocurrency</p>
-                    </div>
-                </div>
-                
-                <div class="blog-grid" id="blog-container">
-                    <!-- Blog posts will be populated here -->
-                </div>
-            </div>
-        </section>
-
-        <!-- Affiliate Page -->
-        <section class="page" id="affiliate-page">
-            <div class="container mt-5">
-                <div class="row">
-                    <div class="col-12 text-center mb-5">
-                        <h2 class="section-title">Affiliate Dashboard</h2>
-                        <p class="section-subtitle">Earn commissions by referring students to CoinAcademia</p>
-                    </div>
-                </div>
-                
-                <div class="dashboard">
-                    <!-- Profile Card -->
-                    <div class="card profile-card">
-                        <div class="card-header">
-                            <h3 class="card-title">Your Profile</h3>
-                        </div>
-                        <img src="public/images/images.png" alt="Profile Picture" class="profile-pic">
-                        <h4 class="user-name" id="affiliate-name">Guest User</h4>
-                        <p class="user-email" id="affiliate-email">guest@example.com</p>
-                        <p class="user-username" id="affiliate-username">@guest</p>
-                        <span class="user-rank">Bronze Affiliate</span>
-                        
-                        <div class="progress-container">
-                            <div class="progress-label">
-                                <span>Progress to Silver</span>
-                                <span>30%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 30%"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="referral-section">
-                            <h5>Your Referral Code</h5>
-                            <div class="referral-code">
-                                <span id="referral-code-text">COINACAD123</span>
-                                <button class="copy-btn" id="copy-referral-btn">Copy</button>
-                            </div>
-                            
-                            <h5>Your Referral Link</h5>
-                            <div class="referral-link">https://coinacademia.in?ref=COINACAD123</div>
-                        </div>
-                    </div>
-                    
-                    <!-- Stats Card -->
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">Affiliate Statistics</h3>
-                        </div>
-                        <div class="stats-grid">
-                            <div class="stat-card">
-                                <div class="stat-value">15</div>
-                                <div class="stat-label">Total Referrals</div>
-                            </div>
-                            <div class="stat-card">
-                                <div class="stat-value">8</div>
-                                <div class="stat-label">Active Referrals</div>
-                            </div>
-                            <div class="stat-card">
-                                <div class="stat-value">$1,250</div>
-                                <div class="stat-label">Total Earnings</div>
-                            </div>
-                            <div class="stat-card">
-                                <div class="stat-value">$300</div>
-                                <div class="stat-label">Pending Payout</div>
-                            </div>
-                        </div>
-                        
-                        <div class="rank-visualizer">
-                            <div class="rank-connector"></div>
-                            <div class="rank-connector-fill"></div>
-                            <div class="rank-step">
-                                <div class="rank-circle">0</div>
-                                <div class="rank-name">Starter</div>
-                            </div>
-                            <div class="rank-step">
-                                <div class="rank-circle">1</div>
-                                <div class="rank-name">Bronze</div>
-                            </div>
-                            <div class="rank-step">
-                                <div class="rank-circle current">2</div>
-                                <div class="rank-name">Silver</div>
-                            </div>
-                            <div class="rank-step">
-                                <div class="rank-circle inactive">3</div>
-                                <div class="rank-name">Gold</div>
-                            </div>
-                            <div class="rank-step">
-                                <div class="rank-circle inactive">4</div>
-                                <div class="rank-name">Platinum</div>
-                            </div>
-                            <div class="rank-step">
-                                <div class="rank-circle inactive">5</div>
-                                <div class="rank-name">Diamond</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Commission Structure -->
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">Commission Structure</h3>
-                        </div>
-                        <table class="commission-table">
-                            <thead>
-                                <tr>
-                                    <th>Rank</th>
-                                    <th>Direct</th>
-                                    <th>Indirect</th>
-                                    <th>Requirements</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Starter</td>
-                                    <td>0%</td>
-                                    <td>0%</td>
-                                    <td>0 referrals</td>
-                                </tr>
-                                <tr>
-                                    <td>Bronze</td>
-                                    <td>20%</td>
-                                    <td>2%,</td>
-                                    <td>3 active downlines</td>
-                                </tr>
-                                <tr>
-                                    <td>Silver</td>
-                                    <td>30%</td>
-                                    <td>3%, 1%</td>
-                                    <td>3 active Bronze members and at least 12 invites</td>
-                                </tr>
-                                <tr>
-                                    <td>Gold</td>
-                                    <td>40%</td>
-                                    <td>4%, 2%, 1%</td>
-                                    <td>4 active Silver members and at least 16 active invites</td>
-                                </tr>
-                                <tr>
-                                    <td>Platinum</td>
-                                    <td>45%</td>
-                                    <td>5%, 3%, 2%, 1%</td>
-                                    <td>4 active Gold members and at least 20 active invites</td>
-                                </tr>
-                                <tr>
-                                    <td>Diamond</td>
-                                    <td>50%</td>
-                                    <td>5%, 3%, 2%, 1%</td>
-                                    <td>4 active Platinum members and at least 25 active invites</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    
-                    <!-- Referrals List -->
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">Your Referrals</h3>
-                        </div>
-                        <table class="referrals-table">
-                            <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Join Date</th>
-                                    <th>Status</th>
-                                    <th>Commission</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>John Doe</td>
-                                    <td>2023-05-15</td>
-                                    <td><span class="status-badge status-active">Active</span></td>
-                                    <td>$150</td>
-                                </tr>
-                                <tr>
-                                    <td>Jane Smith</td>
-                                    <td>2023-06-22</td>
-                                    <td><span class="status-badge status-active">Active</span></td>
-                                    <td>$90</td>
-                                </tr>
-                                <tr>
-                                    <td>Mike Johnson</td>
-                                    <td>2023-04-10</td>
-                                    <td><span class="status-badge status-inactive">Inactive</span></td>
-                                    <td>$60</td>
-                                </tr>
-                                <tr>
-                                    <td>Sarah Williams</td>
-                                    <td>2023-07-05</td>
-                                    <td><span class="status-badge status-active">Active</span></td>
-                                    <td>$120</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    
-                    <!-- Payout History -->
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">Payout History</h3>
-                        </div>
-                        <table class="referrals-table">
-                            <thead>
-                                <tr>
-                                    <th>Date</th>
-                                    <th>Amount</th>
-                                    <th>Status</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>2023-06-30</td>
-                                    <td>$500</td>
-                                    <td><span class="status-badge status-active">Paid</span></td>
-                                </tr>
-                                <tr>
-                                    <td>2023-05-31</td>
-                                    <td>$360</td>
-                                    <td><span class="status-badge status-active">Paid</span></td>
-                                </tr>
-                                <tr>
-                                    <td>2023-04-30</td>
-                                    <td>$190</td>
-                                    <td><span class="status-badge status-active">Paid</span></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Page -->
-        <section class="page" id="contact-page">
-            <div class="container mt-5">
-                <div class="row">
-                    <div class="col-12 text-center mb-5">
-                        <h2 class="section-title">Contact Us</h2>
-                        <p class="section-subtitle">Get in touch with our team for any questions or support</p>
-                    </div>
-                </div>
-                
-                <div class="row">
-                    <div class="col-lg-8 mx-auto">
-                        <div class="contact-form">
-                            <form id="contactForm">
-                                <div class="form-group">
-                                    <label for="name">Full Name</label>
-                                    <input type="text" id="name" name="name" required>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label for="email">Email Address</label>
-                                    <input type="email" id="email" name="email" required>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label for="subject">Subject</label>
-                                    <input type="text" id="subject" name="subject" required>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label for="message">Message</label>
-                                    <textarea id="message" name="message" required></textarea>
-                                </div>
-                                
-                                <button type="submit" class="btn btn-primary">Send Message</button>
-                            </form>
-                        </div>
-                        
-                        <div class="row mt-5">
-                            <div class="col-md-4 text-center mb-4">
-                                <div class="feature-icon mx-auto mb-3">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                </div>
-                                <h5>Our Location</h5>
-                                <p>Mumbai, India</p>
-                            </div>
-                            
-
-                            <div class="col-md-4 text-center mb-4">
-                                <div class="feature-icon mx-auto mb-3">
-                                    <i class="fas fa-phone"></i>
-                                </div>
-                                <h5>Phone Number</h5>
-                                <p>+91 98765 43210</p>
-                            </div>
-                            
-
-                            <div class="col-md-4 text-center mb-4">
-                                <div class="feature-icon mx-auto mb-3">
-                                    <i class="fas fa-envelope"></i>
-                                </div>
-                                <h5>Email Address</h5>
-                                <p>info@coinacademia.in</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section>
-            
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-container">
-            <div class="footer-about">
-                <div class="footer-logo">
-                    <img src="images/icon1.png" alt="CoinAcademia Logo" style="height: 30px;">
-                    <span>CoinAcademia</span>
-                </div>
-                <p>
-                    CoinAcademia is your premier destination for cryptocurrency education. 
-                    Learn trading, blockchain technology, and investment strategies from industry experts.
-                </p>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
-            
-            <div class="footer-links">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#courses">Courses</a></li>
-                    <li><a href="#market">Market</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#blogs">Blogs</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-links">
-                <h3>Resources</h3>
-                <ul>
-                    <li><a href="#affiliate">Affiliate Program</a></li>
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Service</a></li>
-                    <li><a href="#contact">Contact Us</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-links">
-                <h3>Contact Info</h3>
-                <ul>
-                    <li><i class="fas fa-map-marker-alt"></i> Mumbai, India</li>
-                    <li><i class="fas fa-phone"></i> +91 98765 43210</li>
-                    <li><i class="fas fa-envelope"></i> info@coinacademia.in</li>
-                </ul>
             </div>
         </div>
-        
-        <div class="copyright">
-            <p>&copy; 2023 CoinAcademia. All rights reserved.</p>
-        </div>
-    </footer>
+    </section>
 
-    <!-- Login Modal -->
-    <div class="modal" id="loginModal">
-        <div class="modal-content">
-            <button class="modal-close">&times;</button>
-            <div id="login-form-container">
-                <h3 class="modal-title">Login to Your Account</h3>
-                <form id="loginForm">
+    <!-- Modal behavior is handled by the main script; removed duplicate handler to avoid conflicts -->
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p>We offer a wide range of taxi services to meet all your transportation needs</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-plane"></i>
+                    </div>
+                    <h3>Airport Transfers</h3>
+                    <p>Reliable airport pickups and drop-offs with flight tracking to ensure timely service.</p>
+                    <a href="#booking" class="btn btn-outline">Book Now</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-city"></i>
+                    </div>
+                    <h3>City Rides</h3>
+                    <p>Comfortable rides within the city for business meetings, shopping, or leisure.</p>
+                    <a href="#booking" class="btn btn-outline">Book Now</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>Business Travel</h3>
+                    <p>Professional service for corporate clients with receipt generation for expenses.</p>
+                    <a href="#booking" class="btn btn-outline">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section class="booking" id="booking">
+        <div class="container booking-container">
+            <div class="booking-form">
+                <h2>Book Your Ride</h2>
+                <p>Fill out the form below to book your taxi</p>
+                <form id="bookingForm">
                     <div class="form-group">
-                        <label class="form-label" for="login-identifier">Username or Email</label>
-                        <input type="text" class="form-input" id="login-identifier" placeholder="Enter username or email" required>
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" class="form-control" placeholder="Enter your name" required>
                     </div>
-                    <div class="form-group" id="password-group">
-                        <label class="form-label" for="login-password">Password</label>
-                        <input type="password" class="form-input" id="login-password" autocomplete="current-password">
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
                     </div>
-                    <div class="form-group" id="code-group" style="display:none;">
-                        <label class="form-label" for="login-code">Enter Code</label>
-                        <input type="text" class="form-input" id="login-code" maxlength="6" autocomplete="one-time-code">
+                    <div class="form-group">
+                        <label for="whatsapp">WhatsApp Number</label>
+                        <input type="tel" id="whatsapp" class="form-control" placeholder="Enter WhatsApp number (e.g., 254712345678)" required>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-outline-light" id="close-login-modal">Cancel</button>
-                        <button type="button" class="btn btn-primary" id="send-code-btn" style="margin-right: 10px;">Send Code</button>
-                        <button type="submit" class="btn btn-success" id="login-code-btn" style="display:none;">Login with Code</button>
-                        <button type="submit" class="btn btn-primary" id="login-password-btn">Login with Password</button>
+                    <div class="form-group">
+                        <label for="pickup">Pickup Location</label>
+                        <input type="text" id="pickup" class="form-control" placeholder="Enter pickup address" required>
                     </div>
-                    <div style="text-align:center; margin: 1rem 0;">or</div>
-                    <button type="button" class="btn btn-google" id="google-login-btn">
-                        <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google" style="width:20px; height:20px;"> Login with Google
-                    </button>
+                    <div class="form-group">
+                        <label for="destination">Destination</label>
+                        <input type="text" id="destination" class="form-control" placeholder="Enter destination" required>
+                    </div>
+                        <div class="form-group">
+                            <label>Estimated Price</label>
+                            <div class="price-display" id="priceDisplay">
+                                Select pickup and destination locations to see the price
+                            </div>
+                        </div>
+                    <div class="form-group">
+                        <label for="serviceType">Service Type</label>
+                        <select id="serviceType" class="form-control" required>
+                            <option value="">Select service</option>
+                            <option value="airport">Airport Transfer</option>
+                            <option value="city">City Ride</option>
+                            <option value="business">Business Travel</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Date</label>
+                        <input type="date" id="date" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="time">Time</label>
+                        <input type="time" id="time" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%;">Book Now</button>
                 </form>
-                <div class="account-switch" style="text-align:center; margin-top:1rem;">
-                    Don't have an account? 
-                    <a id="switch-to-register" style="color:#007bff; cursor:pointer; text-decoration:underline;" onclick="
-                        document.getElementById('register-tab')?.click();
-                        document.getElementById('login-form-container').style.display = 'none';
-                        document.getElementById('register-form-container').style.display = '';
-                    ">Register</a>
-                </div>
             </div>
-            
-            <div id="register-form-container" style="display:none;">
-                <h3 class="modal-title" style="font-size:1.2rem; margin-bottom:1rem;">Create an Account</h3>
-                <form id="registerForm" style="max-width:320px; margin:auto;">
-                    <div class="form-group" style="margin-bottom:0.7rem;">
-                        <label class="form-label" for="register-username" style="font-size:0.95rem;">Username</label>
-                        <input type="text" class="form-input" id="register-username" placeholder="Choose a username" required style="font-size:0.95rem; padding:0.4rem 0.7rem;">
-                    </div>
-                    <div class="form-group" style="margin-bottom:0.7rem;">
-                        <label class="form-label" for="register-email" style="font-size:0.95rem;">Email</label>
-                        <input type="email" class="form-input" id="register-email" placeholder="Enter your email" required style="font-size:0.95rem; padding:0.4rem 0.7rem;">
-                    </div>
-                    <div class="form-group" style="margin-bottom:0.7rem;">
-                        <label class="form-label" for="register-password" style="font-size:0.95rem;">Password</label>
-                        <input type="password" class="form-input" id="register-password" placeholder="Create a password" required style="font-size:0.95rem; padding:0.4rem 0.7rem;">
-                    </div>
-                    <div class="form-group" style="margin-bottom:0.7rem;">
-                        <label class="form-label" for="register-referral" style="font-size:0.95rem;">Referral Code (optional)</label>
-                        <input type="text" class="form-input" id="register-referral" placeholder="Referral code" style="font-size:0.95rem; padding:0.4rem 0.7rem;">
-                    </div>
-                    <div class="modal-footer" style="display:flex; justify-content:space-between;">
-                        <button type="button" class="btn btn-outline-light" id="close-register-modal" style="font-size:0.95rem; padding:0.3rem 1rem;">Cancel</button>
-                        <button type="submit" class="btn btn-primary" style="font-size:0.95rem; padding:0.3rem 1rem;">Register</button>
-                    </div>
-                    <div style="text-align:center; margin: 0.7rem 0; font-size:0.95rem;">or</div>
-                    <button type="button" class="btn btn-google" id="google-register-btn" style="font-size:0.95rem; padding:0.3rem 1rem;">
-                        <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google" style="width:18px; height:18px; vertical-align:middle;"> Register with Google
-                    </button>
-                </form>
-                <div class="account-switch">
-                    Have an account? 
-                    <a id="switch-to-login" style="color:#007bff; cursor:pointer; text-decoration:underline;" onclick="
-                        document.getElementById('login-form-container').style.display = '';
-                        document.getElementById('register-form-container').style.display = 'none';
-                    ">Login</a>
-                </div>
+            <div class="booking-image">
+                <img src="ims/pexels-cottonbro-4606345.jpg" alt="Taxi Booking">
+            </div>
+        </div>
+    </section>
+
+    <!-- Request Ride Modal (opens when clicking Request a Ride) -->
+    <div id="requestModal" class="modal" role="dialog" aria-hidden="true" aria-labelledby="requestModalTitle">
+        <div class="modal-backdrop" tabindex="-1"></div>
+        <div class="modal-panel" role="document">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+                <h3 id="requestModalTitle">Request a Ride</h3>
+                <button id="requestModalClose" class="btn btn-outline" aria-label="Close">Close</button>
+            </div>
+            <div class="request-info" id="requestOriginInfo">Detecting your location...</div>
+            <div id="requestMap">Loading map...</div>
+            <div>
+                <label for="requestPickupInput">Pickup (optional)</label>
+                <input id="requestPickupInput" class="form-control" placeholder="Use current location or type pickup address" />
+            </div>
+            <div>
+                <label for="requestDestinationInput">Destination</label>
+                <input id="requestDestinationInput" class="form-control" placeholder="Click on map to set destination" />
+            </div>
+            <div id="requestCoords" class="request-coords" aria-live="polite" style="font-size:0.95rem;color:var(--text-light)"></div>
+            <div id="requestPrice" class="price-display" style="margin-top:6px">Estimated price will appear here after selecting destination</div>
+            <div class="modal-actions">
+                <button id="requestConfirmBtn" class="btn">Confirm & Request</button>
+                <button id="requestCancelBtn" class="btn btn-outline">Cancel</button>
             </div>
         </div>
     </div>
 
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="/script.js"></script>
-    </body>
-    </html>
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Us</h2>
+                <p>We provide the best taxi service with these outstanding features</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Punctual Service</h3>
+                    <p>We value your time and ensure timely pickups and drop-offs.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Safe & Secure</h3>
+                    <p>All our drivers are verified and vehicles are regularly maintained.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <h3>Affordable Prices</h3>
+                    <p>Competitive pricing with no hidden charges for transparent billing.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>24/7 Support</h3>
+                    <p>Round-the-clock customer support to assist you anytime.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Get in touch with us for your transportation needs</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-card contact-card--clickable" role="button" tabindex="0" data-type="phone" data-value="+256788408032">
+                        <i class="fas fa-phone"></i>
+                        <h3>Call Us</h3>
+                        <p class="contact-value">+256 788 408 032</p>
+                        <p>24/7 Customer Support</p>
+                    </div>
+                    <div class="contact-card contact-card--clickable" role="button" tabindex="0" data-type="whatsapp" data-value="256788408032">
+                        <i class="fab fa-whatsapp"></i>
+                        <h3>WhatsApp</h3>
+                        <p class="contact-value">+256 788 408 032</p>
+                        <p>Quick Response on WhatsApp</p>
+                    </div>
+                    <div class="contact-card contact-card--clickable" role="button" tabindex="0" data-type="email" data-value="info@teleka.com">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Email</h3>
+                        <p class="contact-value">info@teleka.com</p>
+                        <p>For Bookings & Inquiries</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Teleka Taxi</h3>
+                    <p>Your reliable partner for airport transfers and city rides. We ensure comfortable and safe journeys for all our customers.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#booking">Booking</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#">Airport Transfers</a></li>
+                        <li><a href="#">City Rides</a></li>
+                        <li><a href="#">Business Travel</a></li>
+                        <li><a href="#">Corporate Accounts</a></li>
+                        <li><a href="#">Luxury Rides</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Kampala, Uganda</li>
+                        <li><i class="fas fa-phone"></i> +256 788408032</li>
+                        <li><i class="fas fa-envelope"></i> info@teleka.com</li>
+                        <li><i class="fas fa-clock"></i> Available 24/7</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Teleka Taxi. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Contact Modal -->
+    <div class="contact-modal" id="contactModal" aria-hidden="true">
+        <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="contactModalTitle">
+            <div class="modal-header">
+                <h3 id="contactModalTitle">Contact Teleka</h3>
+                <button class="btn btn-outline" id="contactModalClose" aria-label="Close">Close</button>
+            </div>
+            <div class="modal-body">
+                <p id="contactModalDesc">How would you like to get in touch?</p>
+                <div id="contactDetails"></div>
+            </div>
+            <div class="modal-actions" id="contactModalActions">
+                <!-- buttons injected by JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- WhatsApp Chat Widget -->
+    <div class="whatsapp-panel" id="whatsappPanel" aria-hidden="true">
+        <div class="whatsapp-header">
+            <i class="fab fa-whatsapp" style="font-size:20px"></i>
+            <div>
+                <div class="title">Chat with Support</div>
+                <div style="font-size:12px; opacity:0.9">Typically replies within a few minutes</div>
+            </div>
+        </div>
+        <div class="whatsapp-body">
+            <p>Send us a message and our customer service provider will reply on WhatsApp.</p>
+            <textarea id="whatsappMessage" class="whatsapp-input" placeholder="Hi, I need help with my booking...">Hello, I need help with my booking.</textarea>
+            <div class="whatsapp-actions">
+                <button class="btn btn-outline" id="whatsappClose">Close</button>
+                <button class="btn" id="whatsappSend">Start Chat</button>
+            </div>
+        </div>
+    </div>
+
+    <button class="whatsapp-fab" id="whatsappFab" aria-label="Book Now" title="Book Now">
+        <i class="fas fa-calendar-check" style="font-size:18px; margin-right:8px"></i>
+        Book Now
+    </button>
+
+    <!-- Load our CSS and JS files -->
+    <link rel="stylesheet" href="css/places-autocomplete.css">
+    <script src="js/places-autocomplete.js"></script>
+    <script src="js/places-handler.js"></script>
+
+    <style>
+        /* Inline styles for request modal autocomplete suggestions */
+        .autocomplete-list {
+            position: absolute;
+            z-index: 4000;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+            max-height: 220px;
+            overflow: auto;
+            width: 100%;
+        }
+        .autocomplete-item {
+            padding: 10px 12px;
+            cursor: pointer;
+            border-bottom: 1px solid rgba(0,0,0,0.03);
+            color: var(--text);
+        }
+        .autocomplete-item:hover, .autocomplete-item.active {
+            background: rgba(37,73,235,0.06);
+        }
+    </style>
+
+    <script>
+    (function(){
+        // Create an autocomplete instance for a given input id
+        function createAutocomplete(inputId) {
+            const input = document.getElementById(inputId);
+            if (!input) return;
+
+            let container = null;
+            let sessionToken = String(Math.random()).slice(2);
+            let focused = -1;
+            let debounceTimer = null;
+
+            function ensureContainer(){
+                if (container) return container;
+                container = document.createElement('div');
+                container.className = 'autocomplete-list';
+                container.style.display = 'none';
+                container.setAttribute('role','listbox');
+                input.parentElement.style.position = 'relative';
+                input.parentElement.appendChild(container);
+                return container;
+            }
+
+            async function fetchSuggestions(q){
+                if (!q || q.length < 2) return [];
+                try {
+                    const res = await fetch(`/api/places/autocomplete?input=${encodeURIComponent(q)}&sessiontoken=${sessionToken}`);
+                    const data = await res.json();
+                    return data.predictions || [];
+                } catch (e) {
+                    console.warn('Autocomplete fetch failed', e);
+                    return [];
+                }
+            }
+
+            async function fetchPlaceDetails(place_id){
+                try{
+                    const res = await fetch(`/api/places/details?place_id=${encodeURIComponent(place_id)}&sessiontoken=${sessionToken}`);
+                    const data = await res.json();
+                    return data.result;
+                } catch(e){
+                    console.warn('Place details failed', e);
+                    return null;
+                }
+            }
+
+            function render(list){
+                const ct = ensureContainer();
+                ct.innerHTML = '';
+                focused = -1;
+                if (!list || list.length === 0) { ct.style.display = 'none'; return; }
+                list.forEach((p, i) => {
+                    const el = document.createElement('div');
+                    el.className = 'autocomplete-item';
+                    el.textContent = p.description || p.structured_formatting?.main_text || p.description;
+                    el.tabIndex = -1;
+                    el.setAttribute('role','option');
+                    el.addEventListener('click', async () => {
+                        input.value = el.textContent;
+                        ct.style.display = 'none';
+                        // get details and store lat/lng on the input for other scripts
+                        if (p.place_id) {
+                            const details = await fetchPlaceDetails(p.place_id);
+                            if (details && details.geometry && details.geometry.location) {
+                                input.dataset.lat = details.geometry.location.lat;
+                                input.dataset.lng = details.geometry.location.lng;
+                                if (window.updateRequestEstimate) window.updateRequestEstimate();
+                            }
+                        }
+                    });
+                    ct.appendChild(el);
+                });
+                ct.style.display = 'block';
+            }
+
+            input.addEventListener('input', () => {
+                clearTimeout(debounceTimer);
+                debounceTimer = setTimeout(async () => {
+                    const q = input.value.trim();
+                    if (q.length < 2) { ensureContainer().style.display = 'none'; return; }
+                    const preds = await fetchSuggestions(q);
+                    render(preds);
+                }, 250);
+            });
+
+            input.addEventListener('keydown', (e) => {
+                const ct = ensureContainer();
+                const children = ct.querySelectorAll('.autocomplete-item');
+                if (!children || children.length === 0) return;
+                if (e.key === 'ArrowDown') {
+                    e.preventDefault();
+                    focused = Math.min(focused + 1, children.length - 1);
+                    children.forEach((c, i) => c.classList.toggle('active', i === focused));
+                    children[focused].scrollIntoView({block:'nearest'});
+                } else if (e.key === 'ArrowUp') {
+                    e.preventDefault();
+                    focused = Math.max(focused - 1, 0);
+                    children.forEach((c, i) => c.classList.toggle('active', i === focused));
+                    children[focused].scrollIntoView({block:'nearest'});
+                } else if (e.key === 'Enter') {
+                    if (focused >= 0 && children[focused]) {
+                        e.preventDefault();
+                        children[focused].click();
+                    }
+                } else if (e.key === 'Escape') {
+                    ct.style.display = 'none';
+                }
+            });
+
+            document.addEventListener('click', (e) => {
+                const ct = container;
+                if (!ct) return;
+                if (e.target === input || input.contains(e.target) || ct.contains(e.target)) return;
+                ct.style.display = 'none';
+            });
+        }
+
+        // Initialize autocomplete for pickup and destination fields (if present)
+        try { createAutocomplete('requestPickupInput'); } catch (e) { /* ignore */ }
+        try { createAutocomplete('requestDestinationInput'); } catch (e) { /* ignore */ }
+
+        // Also listen for manual coordinate entry (e.g "0.3476, 32.5825")
+        function attachManualCoordHandler(id) {
+            const el = document.getElementById(id);
+            if (!el) return;
+            el.addEventListener('blur', async () => {
+                const v = el.value && el.value.trim();
+                if (!v) return;
+                if (v.includes(',')) {
+                    const parts = v.split(',').map(p => parseFloat(p.trim()));
+                    if (parts.length === 2 && !isNaN(parts[0]) && !isNaN(parts[1])) {
+                        el.dataset.lat = parts[0];
+                        el.dataset.lng = parts[1];
+                        console.log('Manual coords set on', id, ':', parts);
+                        if (window.updateRequestEstimate) {
+                            await window.updateRequestEstimate();
+                        }
+                    }
+                }
+            });
+        }
+
+        try { attachManualCoordHandler('requestPickupInput'); } catch (e) { /* ignore */ }
+        try { attachManualCoordHandler('requestDestinationInput'); } catch (e) { /* ignore */ }
+    })();
+    </script>
+
+    <script>
+        // Cache utils for places
+        const PlacesCache = {
+            KEY: 'teleka_recent_places',
+            MAX_ITEMS: 5,
+            DURATION: 7 * 24 * 60 * 60 * 1000, // 7 days
+
+            load() {
+                try {
+                    const cached = localStorage.getItem(this.KEY);
+                    if (!cached) return [];
+                    const { items, timestamp } = JSON.parse(cached);
+                    if (Date.now() - timestamp > this.DURATION) {
+                        localStorage.removeItem(this.KEY);
+                        return [];
+                    }
+                    return items;
+                } catch (e) {
+                    console.warn('Error loading recent places:', e);
+                    return [];
+                }
+            },
+
+            save(place) {
+                try {
+                    const recent = this.load();
+                    const newPlace = {
+                        id: place.place_id || place.description,
+                        description: place.description || place.formatted_address || place.name,
+                        main_text: place.structured_formatting?.main_text || place.name,
+                        secondary_text: place.structured_formatting?.secondary_text || '',
+                        timestamp: Date.now()
+                    };
+
+                    const updated = [newPlace, ...recent.filter(p => p.id !== newPlace.id)]
+                        .slice(0, this.MAX_ITEMS);
+
+                    localStorage.setItem(this.KEY, JSON.stringify({
+                        items: updated,
+                        timestamp: Date.now()
+                    }));
+                } catch (e) {
+                    console.warn('Error saving recent place:', e);
+                }
+            },
+
+            filter(query) {
+                return this.load().filter(place => 
+                    place.description.toLowerCase().includes(query.toLowerCase()) ||
+                    place.main_text.toLowerCase().includes(query.toLowerCase())
+                );
+            }
+        };
+
+        // Theme Toggle with localStorage persistence
+        const THEME_KEY = 'theme-preference';
+        
+        function initTheme() {
+            const savedTheme = localStorage.getItem(THEME_KEY);
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-mode');
+                updateThemeIcon(true);
+            } else {
+                document.body.classList.remove('dark-mode');
+                updateThemeIcon(false);
+            }
+        }
+        
+        function updateThemeIcon(isDark) {
+            const themeToggle = document.getElementById('themeToggle');
+            const themeIcon = themeToggle ? themeToggle.querySelector('i') : null;
+            if (themeIcon) {
+                if (isDark) {
+                    themeIcon.classList.remove('fa-moon');
+                    themeIcon.classList.add('fa-sun');
+                } else {
+                    themeIcon.classList.remove('fa-sun');
+                    themeIcon.classList.add('fa-moon');
+                }
+            }
+        }
+        
+        // Initialize theme on page load
+        initTheme();
+        
+        const themeToggle = document.getElementById('themeToggle');
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                const isDark = document.body.classList.toggle('dark-mode');
+                updateThemeIcon(isDark);
+                localStorage.setItem(THEME_KEY, isDark ? 'dark' : 'light');
+            });
+        }
+
+            // Removed testimonial slider code
+        // Mobile Menu Toggle (slide-in panel)
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        const navOverlay = document.getElementById('navOverlay');
+
+        // initialize accessibility attributes
+        if (mobileMenu) mobileMenu.setAttribute('aria-expanded', 'false');
+        if (navLinks) navLinks.setAttribute('aria-hidden', 'true');
+
+        function closeMobileNav() {
+            if (navLinks) navLinks.classList.remove('open');
+            if (navOverlay) navOverlay.classList.remove('active');
+            if (mobileMenu) mobileMenu.setAttribute('aria-expanded', 'false');
+            if (navLinks) navLinks.setAttribute('aria-hidden', 'true');
+            document.body.classList.remove('no-scroll');
+        }
+
+        function openMobileNav() {
+            if (navLinks) navLinks.classList.add('open');
+            if (navOverlay) navOverlay.classList.add('active');
+            if (mobileMenu) mobileMenu.setAttribute('aria-expanded', 'true');
+            if (navLinks) navLinks.setAttribute('aria-hidden', 'false');
+            document.body.classList.add('no-scroll');
+        }
+
+        if (mobileMenu) {
+            // Hamburger only opens the mobile nav; closing is handled by the X button only
+            mobileMenu.addEventListener('click', () => {
+                openMobileNav();
+            });
+        }
+
+        // NOTE: backdrop will NOT close the nav; closing is only via the X button
+
+        // close button inside nav
+        const navClose = document.querySelector('.nav-close');
+        if (navClose) {
+            navClose.addEventListener('click', () => closeMobileNav());
+        }
+
+        // Auto-close mobile nav when a nav link inside the panel is clicked
+        // This only runs if the panel is currently open so desktop behavior is unaffected.
+        if (navLinks) {
+            const navAnchors = navLinks.querySelectorAll('a[href^="#"]');
+            navAnchors.forEach(anchor => {
+                anchor.addEventListener('click', (e) => {
+                    // If panel is open, close it after a short delay so smooth-scroll can begin
+                    if (navLinks.classList.contains('open')) {
+                        setTimeout(() => {
+                            try { closeMobileNav(); } catch (err) { /* ignore */ }
+                        }, 150);
+                    }
+                });
+            });
+        }
+
+        // Booking Form Submission
+        const bookingForm = document.getElementById('bookingForm');
+        
+        bookingForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // Collect form data
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                whatsapp: document.getElementById('whatsapp').value,
+                pickup: document.getElementById('pickup').value,
+                destination: document.getElementById('destination').value,
+                serviceType: document.getElementById('serviceType').value,
+                date: document.getElementById('date').value,
+                time: document.getElementById('time').value
+            };
+
+            try {
+                // Create WhatsApp message
+                const message = `🚕 New Booking Request\n\n` +
+                    `Customer Details:\n` +
+                    `👤 Name: ${formData.name}\n` +
+                    `📞 WhatsApp: ${formData.whatsapp}\n` +
+                    `📍 Pickup: ${formData.pickup}\n` +
+                    `🏁 Destination: ${formData.destination}\n` +
+                    `🚖 Service: ${formData.serviceType}\n` +
+                        `💰 Estimated Price: ${document.getElementById('priceDisplay').textContent}\n` +
+                    `📅 Date: ${formData.date}\n` +
+                    `⏰ Time: ${formData.time}\n\n` +
+                    `Please confirm my booking. Thank you!`;
+
+                // Ensure the business phone number is clean (only digits)
+                const businessPhoneNumber = '256788408032';
+                
+                // Open WhatsApp with the booking message using the standard wa.me format
+                const whatsappUrl = `https://wa.me/${businessPhoneNumber}?text=${encodeURIComponent(message)}`;
+                window.open(whatsappUrl, '_blank');
+
+                alert('Thank you for your booking! We will contact you shortly via WhatsApp to confirm your ride.');
+                bookingForm.reset();
+            } catch (error) {
+                console.error('Booking error:', error);
+                alert('Sorry, there was an error submitting your booking. Please try again.');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Do not automatically close mobile nav when a link is clicked; user must use the X button
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if(window.scrollY > 100) {
+                header.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.boxShadow = 'var(--shadow)';
+            }
+        });
+
+        // Repurpose the floating WhatsApp FAB into a 'Book Now' quick action
+        (function() {
+            const fab = document.getElementById('whatsappFab');
+            if (!fab) return;
+
+            // Ensure aria labels reflect new action
+            fab.setAttribute('aria-label', 'Book Now');
+            fab.setAttribute('title', 'Book Now');
+
+            // On click, smoothly scroll to the booking section and focus the name input
+            fab.addEventListener('click', (e) => {
+                e.preventDefault();
+                const bookingEl = document.getElementById('booking');
+                if (bookingEl) {
+                    bookingEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    // Focus the first field shortly after scrolling
+                    setTimeout(() => { document.getElementById('name')?.focus(); }, 700);
+                } else {
+                    // fallback: navigate to #booking
+                    window.location.href = '#booking';
+                }
+            });
+        })();
+
+        // Activate contact cards: open modal with appropriate actions
+        (function() {
+            const cards = document.querySelectorAll('.contact-card--clickable');
+            const modal = document.getElementById('contactModal');
+            const modalClose = document.getElementById('contactModalClose');
+            const modalDetails = document.getElementById('contactDetails');
+            const modalActions = document.getElementById('contactModalActions');
+
+            if (!cards || !modal) return;
+
+            function openModal(type, value) {
+                modal.setAttribute('aria-hidden', 'false');
+                modal.classList.add('open');
+                modalDetails.innerHTML = `<div style="margin-bottom:8px"><strong>${type === 'email' ? 'Email' : type === 'whatsapp' ? 'WhatsApp' : 'Phone'}</strong></div><div class="contact-value">${value}</div>`;
+                modalActions.innerHTML = '';
+
+                if (type === 'phone') {
+                    const callBtn = document.createElement('a');
+                    callBtn.className = 'btn';
+                    callBtn.href = `tel:${value.replace(/\s+/g,'')}`;
+                    callBtn.textContent = 'Call Now';
+                    modalActions.appendChild(callBtn);
+
+                    const smsBtn = document.createElement('a');
+                    smsBtn.className = 'btn btn-outline';
+                    smsBtn.href = `sms:${value.replace(/\s+/g,'')}`;
+                    smsBtn.textContent = 'Send SMS';
+                    modalActions.appendChild(smsBtn);
+                } else if (type === 'whatsapp') {
+                    const waBtn = document.createElement('a');
+                    waBtn.className = 'btn';
+                    // Ensure the number doesn't have spaces or special characters
+                    const cleanNumber = value.replace(/\D/g, '');
+                    waBtn.href = `https://wa.me/${cleanNumber}`;
+                    waBtn.target = '_blank';
+                    waBtn.rel = 'noopener noreferrer';
+                    waBtn.textContent = 'Start WhatsApp Chat';
+                    modalActions.appendChild(waBtn);
+
+                    const callBtn = document.createElement('a');
+                    callBtn.className = 'btn btn-outline';
+                    callBtn.href = `tel:+${value.replace(/\D/g, '')}`;
+                    callBtn.textContent = 'Call';
+                    modalActions.appendChild(callBtn);
+                } else if (type === 'email') {
+                    const mailBtn = document.createElement('a');
+                    mailBtn.className = 'btn';
+                    mailBtn.href = `mailto:${value}`;
+                    mailBtn.textContent = 'Send Email';
+                    modalActions.appendChild(mailBtn);
+
+                    const copyBtn = document.createElement('button');
+                    copyBtn.className = 'btn btn-outline';
+                    copyBtn.textContent = 'Copy Email';
+                    copyBtn.addEventListener('click', () => {
+                        navigator.clipboard?.writeText(value).then(() => alert('Email copied to clipboard'));
+                    });
+                    modalActions.appendChild(copyBtn);
+                }
+
+                // Trap focus loosely by focusing close button
+                modalClose.focus();
+            }
+
+            function closeModal() {
+                modal.setAttribute('aria-hidden', 'true');
+                modal.classList.remove('open');
+            }
+
+            cards.forEach(card => {
+                const type = card.getAttribute('data-type');
+                const value = card.getAttribute('data-value');
+                const handler = (e) => { e.preventDefault(); openModal(type, value); };
+                card.addEventListener('click', handler);
+                card.addEventListener('keypress', (e) => { if (e.key === 'Enter' || e.key === ' ') handler(e); });
+            });
+
+            modalClose.addEventListener('click', (e) => { e.preventDefault(); closeModal(); });
+            modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+        })();
+
+        // Hero slideshow initializer: gentle crossfade + Ken Burns
+        (function() {
+            const slides = document.querySelectorAll('.hero-slideshow .slide');
+            if (!slides || slides.length === 0) return;
+            let idx = 0;
+            slides[idx].classList.add('active');
+
+            setInterval(() => {
+                slides[idx].classList.remove('active');
+                idx = (idx + 1) % slides.length;
+                slides[idx].classList.add('active');
+            }, 5000); // change every 5s
+        })();
+
+        // Initialize components
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize places autocomplete (defensive: don't break if module missing)
+                try {
+                    if (window.PlacesAutocomplete && typeof PlacesAutocomplete.init === 'function') {
+                        PlacesAutocomplete.init('pickup', 'destination');
+                    } else {
+                        console.warn('PlacesAutocomplete not available; skipping init');
+                    }
+                } catch (e) {
+                    console.warn('PlacesAutocomplete init failed:', e);
+                }
+
+            // Animated, colorful hero-content1 headings
+            (function() {
+                const container = document.querySelector('.hero-content1');
+                if (!container) return;
+                const items = Array.from(container.querySelectorAll('h1'));
+                if (!items.length) return;
+
+                const colors = [
+                    '#2549eb', // blue
+                    '#10b981', // green
+                    '#f59e0b', // amber
+                    '#ef4444', // red
+                    '#8b5cf6'  // violet
+                ];
+
+                let idx = -1;
+                const showDuration = 3000; // ms each visible
+
+                function next() {
+                    // previous
+                    if (idx >= 0) {
+                        const prev = items[idx];
+                        prev.classList.remove('active');
+                        prev.classList.add('exit');
+                        // cleanup exit after animation
+                        setTimeout(() => prev.classList.remove('exit'), 900);
+                    }
+
+                    idx = (idx + 1) % items.length;
+                    const el = items[idx];
+                    // pick a color (cycle)
+                    const color = colors[idx % colors.length];
+                    el.style.color = color;
+                    // ensure starting offscreen to the right for re-run
+                    el.classList.remove('exit');
+                    // Force reflow to ensure the transform transition will run
+                    // eslint-disable-next-line no-unused-expressions
+                    el.offsetWidth;
+                    el.classList.add('active');
+                }
+
+                // Start the cycle
+                // If user prefers reduced motion, show first item statically
+                const mq = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
+                if (mq && mq.matches) {
+                    items.forEach((it, i) => { it.classList.remove('active','exit'); it.style.color = colors[i % colors.length]; });
+                    return;
+                }
+
+                next();
+                setInterval(next, showDuration);
+            })();
+
+            // Price calculation function (kept here for reference)
+            async function calculatePrice(origin, destination) {
+                const priceDisplay = document.getElementById('priceDisplay');
+            
+                try {
+                    priceDisplay.textContent = 'Calculating price...';
+                    priceDisplay.classList.add('loading');
+                    priceDisplay.classList.remove('has-price');
+                
+                    const response = await fetch(`/api/calculate-price?origin=${encodeURIComponent(origin)}&destination=${encodeURIComponent(destination)}`);
+                    const data = await response.json();
+                
+                    if (data.error) {
+                        throw new Error(data.error);
+                    }
+                
+                    const formattedPrice = new Intl.NumberFormat('en-UG', {
+                        style: 'currency',
+                        currency: 'UGX',
+                        minimumFractionDigits: 0,
+                        maximumFractionDigits: 0
+                    }).format(data.price);
+                
+                    priceDisplay.textContent = `${formattedPrice}`;
+                    priceDisplay.classList.add('has-price');
+                } catch (error) {
+                    console.error('Error calculating price:', error);
+                    priceDisplay.textContent = 'Could not calculate price. Please try again.';
+                } finally {
+                    priceDisplay.classList.remove('loading');
+                }
+            }
+
+            // Request Ride modal + Google Maps integration
+            const GOOGLE_MAPS_API_KEY = 'AIzaSyCkbXtLR2mUNfonNZ7FUwOB1xU6RhdLLpg';
+            let requestMap, requestGeocoder, originMarker, destMarker, requestMapLoaded = false;
+            let requestDirectionsService = null, requestDirectionsRenderer = null;
+
+            function loadGoogleMaps() {
+                return new Promise((resolve, reject) => {
+                    if (window.google && window.google.maps) {
+                        requestMapLoaded = true;
+                        resolve(window.google.maps);
+                        return;
+                    }
+
+                    if (!GOOGLE_MAPS_API_KEY || GOOGLE_MAPS_API_KEY === 'YOUR_GOOGLE_MAPS_API_KEY') {
+                        // No API key provided; resolve null so UI can fallback
+                        resolve(null);
+                        return;
+                    }
+
+                    window.__initRequestMap = function() {
+                        requestMapLoaded = true;
+                        resolve(window.google.maps);
+                    };
+
+                    const s = document.createElement('script');
+                    s.src = `https://maps.googleapis.com/maps/api/js?key=${GOOGLE_MAPS_API_KEY}&libraries=places&callback=__initRequestMap`;
+                    s.async = true;
+                    s.defer = true;
+                    s.onerror = () => reject(new Error('Google Maps failed to load'));
+                    document.head.appendChild(s);
+                });
+            }
+
+            function initRequestMapContainer() {
+                if (!window.google || !window.google.maps) return;
+                if (requestMap) return;
+                const mapEl = document.getElementById('requestMap');
+                requestMap = new google.maps.Map(mapEl, { center: { lat: 0, lng: 0 }, zoom: 14, streetViewControl: false });
+                requestGeocoder = new google.maps.Geocoder();
+
+                originMarker = new google.maps.Marker({ map: requestMap, title: 'You are here', icon: { path: google.maps.SymbolPath.CIRCLE, scale: 7, fillColor: '#1d4ed8', fillOpacity: 1, strokeColor: '#fff', strokeWeight: 2 } });
+                destMarker = new google.maps.Marker({ map: requestMap, title: 'Destination' });
+
+                    // Directions service + renderer for showing route
+                    requestDirectionsService = new google.maps.DirectionsService();
+                    requestDirectionsRenderer = new google.maps.DirectionsRenderer({ map: requestMap, suppressMarkers: false });
+
+                requestMap.addListener('click', (e) => {
+                    setDestinationByLatLng(e.latLng);
+                });
+            }
+
+            function setDestinationByLatLng(latLng) {
+                if (!requestGeocoder) return;
+                destMarker.setPosition(latLng);
+                requestMap.panTo(latLng);
+                requestGeocoder.geocode({ location: latLng }, function(results, status) {
+                    const destInput = document.getElementById('requestDestinationInput');
+                    if (status === 'OK' && results && results[0]) {
+                        destInput.value = results[0].formatted_address;
+                        destInput.dataset.lat = latLng.lat();
+                        destInput.dataset.lng = latLng.lng();
+                        if (window.updateRequestEstimate) window.updateRequestEstimate();
+                    } else {
+                        destInput.value = `${latLng.lat().toFixed(5)}, ${latLng.lng().toFixed(5)}`;
+                        if (window.updateRequestEstimate) window.updateRequestEstimate();
+                    }
+                });
+            }
+
+            async function openRequestModal() {
+                const modal = document.getElementById('requestModal');
+                const originInfo = document.getElementById('requestOriginInfo');
+                modal.setAttribute('aria-hidden', 'false');
+                modal.classList.add('open');
+                document.body.classList.add('no-scroll');
+                
+                // Reset destination input
+                document.getElementById('requestDestinationInput').value = '';
+                delete document.getElementById('requestDestinationInput').dataset.lat;
+                delete document.getElementById('requestDestinationInput').dataset.lng;
+
+                // Auto-set a default destination (Kampala city center as example)
+                const destInput = document.getElementById('requestDestinationInput');
+                destInput.value = 'Kampala City Center, Uganda';
+                destInput.dataset.lat = 0.3476;
+                destInput.dataset.lng = 32.5825;
+
+                const maps = await loadGoogleMaps().catch(() => null);
+                const mapsLoaded = !!maps;
+
+                if (mapsLoaded) {
+                    initRequestMapContainer();
+                }
+
+                // Always attempt browser geolocation to obtain origin coordinates
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition((pos) => {
+                        const lat = pos.coords.latitude;
+                        const lng = pos.coords.longitude;
+                        // store numeric coords on originInfo so estimate can run without Maps
+                        originInfo.dataset.originLat = lat;
+                        originInfo.dataset.originLng = lng;
+
+                        if (mapsLoaded && window.google && requestGeocoder && originMarker && requestMap) {
+                            const latLng = new google.maps.LatLng(lat, lng);
+                            originMarker.setPosition(latLng);
+                            requestMap.setCenter(latLng);
+                            requestMap.setZoom(15);
+                            originInfo.textContent = 'Detecting address...';
+                            requestGeocoder.geocode({ location: latLng }, (results, status) => {
+                                if (status === 'OK' && results && results[0]) {
+                                    originInfo.textContent = 'Origin: ' + results[0].formatted_address;
+                                    originInfo.dataset.origin = results[0].formatted_address;
+                                } else {
+                                    originInfo.textContent = `Origin: ${lat.toFixed(5)}, ${lng.toFixed(5)}`;
+                                }
+                                // Now compute and show directions with the auto-set destination
+                                if (window.computeAndDisplayRoute) window.computeAndDisplayRoute();
+                                if (window.updateRequestEstimate) window.updateRequestEstimate();
+                            });
+                        } else {
+                            originInfo.textContent = `Origin: ${lat.toFixed(5)}, ${lng.toFixed(5)}`;
+                            // Still show directions and estimate with simple coords
+                            if (window.computeAndDisplayRoute) window.computeAndDisplayRoute();
+                            if (window.updateRequestEstimate) window.updateRequestEstimate();
+                        }
+                    }, (err) => {
+                        originInfo.textContent = 'Could not detect location. Showing directions to default destination.';
+                        // Still try to show directions with a fallback origin
+                        if (window.computeAndDisplayRoute) window.computeAndDisplayRoute();
+                        if (window.updateRequestEstimate) window.updateRequestEstimate();
+                    }, { enableHighAccuracy: true, timeout: 8000 });
+                } else {
+                    originInfo.textContent = 'Geolocation not supported. Showing directions to default destination.';
+                    if (window.computeAndDisplayRoute) window.computeAndDisplayRoute();
+                    if (window.updateRequestEstimate) window.updateRequestEstimate();
+                }
+            }
+
+            function closeRequestModal() {
+                const modal = document.getElementById('requestModal');
+                modal.setAttribute('aria-hidden', 'true');
+                modal.classList.remove('open');
+                document.body.classList.remove('no-scroll');
+            }
+
+            // Compute and display route on the map when both origin & destination coords are available
+            window.computeAndDisplayRoute = function() {
+                try {
+                    // Ensure maps are loaded and ready
+                    if (!requestMapLoaded || !window.google || !window.google.maps) {
+                        console.warn('Google Maps not loaded yet');
+                        return;
+                    }
+                    if (!requestDirectionsService || !requestDirectionsRenderer) {
+                        console.warn('Directions service/renderer not initialized');
+                        return;
+                    }
+
+                    const originInfo = document.getElementById('requestOriginInfo');
+                    const pickupInput = document.getElementById('requestPickupInput');
+                    const destInput = document.getElementById('requestDestinationInput');
+
+                    // Prefer explicit pickup input coords; fallback to detected origin coords
+                    const oLat = pickupInput?.dataset?.lat || originInfo?.dataset?.originLat;
+                    const oLng = pickupInput?.dataset?.lng || originInfo?.dataset?.originLng;
+                    const dLat = destInput?.dataset?.lat;
+                    const dLng = destInput?.dataset?.lng;
+
+                    if (!oLat || !oLng || !dLat || !dLng) {
+                        console.warn('Missing coords for route:', { oLat, oLng, dLat, dLng });
+                        return;
+                    }
+
+                    const originLatLng = { lat: parseFloat(oLat), lng: parseFloat(oLng) };
+                    const destLatLng = { lat: parseFloat(dLat), lng: parseFloat(dLng) };
+
+                    console.log('Requesting directions:', originLatLng, '=>', destLatLng);
+                    requestDirectionsService.route({
+                        origin: originLatLng,
+                        destination: destLatLng,
+                        travelMode: google.maps.TravelMode.DRIVING
+                    }, (result, status) => {
+                        if (status === 'OK') {
+                            console.log('Directions OK, rendering route');
+                            requestDirectionsRenderer.setDirections(result);
+                        } else {
+                            console.warn('Directions request failed:', status);
+                        }
+                    });
+                } catch (e) {
+                    console.warn('computeAndDisplayRoute error', e);
+                }
+            };
+
+            // Update estimated price when origin & destination coordinates are available
+            window.updateRequestEstimate = async function() {
+                try {
+                    const originInfo = document.getElementById('requestOriginInfo');
+                    const destInput = document.getElementById('requestDestinationInput');
+                    const priceEl = document.getElementById('requestPrice');
+                    if (!priceEl) return;
+
+                    // Require numeric origin and destination coordinates (pickup overrides detected origin)
+                    const pickupInput = document.getElementById('requestPickupInput');
+                    const oLat = pickupInput?.dataset?.lat || originInfo?.dataset?.originLat;
+                    const oLng = pickupInput?.dataset?.lng || originInfo?.dataset?.originLng;
+                    const dLat = destInput?.dataset?.lat;
+                    const dLng = destInput?.dataset?.lng;
+
+                    if (!oLat || !oLng) {
+                        priceEl.textContent = 'Waiting for your location...';
+                        return;
+                    }
+                    if (!dLat || !dLng) {
+                        priceEl.textContent = 'Select destination to see estimate';
+                        return;
+                    }
+
+                    priceEl.textContent = 'Calculating price...';
+                    const originParam = `${oLat},${oLng}`;
+                    const destParam = `${dLat},${dLng}`;
+                    const res = await fetch(`/api/calculate-price?origin=${encodeURIComponent(originParam)}&destination=${encodeURIComponent(destParam)}`);
+                    const data = await res.json();
+                    if (!res.ok || data.error) {
+                        priceEl.textContent = 'Could not calculate price';
+                        return;
+                    }
+
+                    const formatted = new Intl.NumberFormat('en-UG', { style: 'currency', currency: 'UGX', minimumFractionDigits: 0 }).format(data.price || 0);
+                    const distanceText = data.distance?.text || '';
+                    const traffic = data.traffic_level ? ` • Traffic: ${data.traffic_level}` : '';
+                    priceEl.textContent = `${formatted}${distanceText ? ' • ' + distanceText : ''}${traffic}`;
+                    // Show directions on map after price is displayed
+                    console.log('Price calculated, calling computeAndDisplayRoute');
+                    if (window.computeAndDisplayRoute) window.computeAndDisplayRoute();
+                } catch (err) {
+                    console.warn('Estimate error', err);
+                }
+            };
+
+            // Wire up modal actions
+            const requestBtn = document.getElementById('requestRideBtn');
+            if (requestBtn) requestBtn.addEventListener('click', (e) => { e.preventDefault(); openRequestModal(); });
+            const requestClose = document.getElementById('requestModalClose');
+            if (requestClose) requestClose.addEventListener('click', () => closeRequestModal());
+            const requestCancel = document.getElementById('requestCancelBtn');
+            if (requestCancel) requestCancel.addEventListener('click', () => closeRequestModal());
+
+            const requestConfirm = document.getElementById('requestConfirmBtn');
+            if (requestConfirm) requestConfirm.addEventListener('click', async () => {
+                const destInput = document.getElementById('requestDestinationInput');
+                const originInfo = document.getElementById('requestOriginInfo');
+                const coordsEl = document.getElementById('requestCoords');
+
+                // Resolve origin: prefer explicit pickup input, else detected origin
+                let origin = null;
+                const pickupInput = document.getElementById('requestPickupInput');
+                if (pickupInput && pickupInput.dataset && pickupInput.dataset.lat && pickupInput.dataset.lng) {
+                    origin = { lat: parseFloat(pickupInput.dataset.lat), lng: parseFloat(pickupInput.dataset.lng) };
+                } else if (originInfo && originInfo.dataset && originInfo.dataset.originLat && originInfo.dataset.originLng) {
+                    origin = { lat: parseFloat(originInfo.dataset.originLat), lng: parseFloat(originInfo.dataset.originLng) };
+                } else {
+                    origin = originInfo ? (originInfo.dataset.origin || originInfo.textContent || '') : '';
+                }
+
+                // Resolve destination
+                let destination = null;
+                if (destInput && destInput.dataset && destInput.dataset.lat && destInput.dataset.lng) {
+                    destination = { lat: parseFloat(destInput.dataset.lat), lng: parseFloat(destInput.dataset.lng) };
+                } else if (destInput && destInput.value && destInput.value.includes(',')) {
+                    const parts = destInput.value.split(',').map(p => parseFloat(p.trim()));
+                    if (parts.length === 2 && !isNaN(parts[0]) && !isNaN(parts[1])) {
+                        destination = { lat: parts[0], lng: parts[1] };
+                    } else {
+                        destination = destInput.value.trim();
+                    }
+                } else if (destInput) {
+                    destination = destInput.value.trim();
+                }
+
+                if (!destination || (typeof destination === 'string' && destination.length === 0)) {
+                    alert('Please select a destination by clicking on the map or typing it.');
+                    return;
+                }
+
+                // Update coordinate display
+                try {
+                    const originText = (origin && typeof origin === 'object') ? `${origin.lat.toFixed(5)}, ${origin.lng.toFixed(5)}` : (origin || 'Unknown');
+                    const destText = (destination && typeof destination === 'object') ? `${destination.lat.toFixed(5)}, ${destination.lng.toFixed(5)}` : (destination || 'Unknown');
+                    if (coordsEl) coordsEl.textContent = `Origin: ${originText} — Destination: ${destText}`;
+                } catch (e) { /* ignore display errors */ }
+
+                requestConfirm.disabled = true;
+                requestConfirm.textContent = 'Requesting...';
+
+                try {
+                    const payload = { origin, destination, timestamp: new Date().toISOString() };
+                    const res = await fetch('/request-ride', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    const data = await res.json();
+                    if (res.ok) {
+                        alert('Ride requested successfully. Reference: ' + (data.reference || 'n/a'));
+                        closeRequestModal();
+                    } else {
+                        alert('Failed to request ride: ' + (data.error || res.statusText));
+                    }
+                } catch (err) {
+                    console.error('Request ride error', err);
+                    alert('Network error while requesting ride.');
+                } finally {
+                    requestConfirm.disabled = false;
+                    requestConfirm.textContent = 'Confirm & Request';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
